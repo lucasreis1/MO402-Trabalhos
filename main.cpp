@@ -3,6 +3,7 @@
 #include<algorithm> //sort
 #include<utility> //swap
 #include<fstream>
+#include<limits> //max_float
 
 using namespace std;
 
@@ -15,97 +16,164 @@ public:
 	virtual int find_set(int x) = 0;
 	virtual void _union(int x,int y) = 0;
 	virtual void link(int x,int y) = 0;
-	virtual void print_parents() = 0;
 
 	int n_el;
 
 	Union_Find(int nel=0): n_el(nel){}
 };
 
+class Union_Find_Vector: public Union_Find
+{
+	private:
+		struct Node
+		{
+			int parent;
+			int size;
+			Node(int p = 0): parent(p),size(1){}
+		};
+
+	vector<Node> nodes;
+
+	public:
+		Union_Find_Vector(int nel=0): Union_Find(nel), nodes(nel)
+		{
+			for(int i = 0 ; i < n_el ; i++)
+			{
+				make_set(i);
+			}
+		}
+
+		void make_set(int x)
+		{
+			nodes[x].parent = x;
+		}
+
+		int find_set(int x)
+		{
+			return nodes[x].parent;
+		}
+
+		void _union(int x,int y)
+		{
+			link(find_set(x),find_set(y));
+		}
+
+		void link(int x,int y)
+		{
+			int t;
+			if(nodes[x].size >= nodes[y].size)
+			{
+				t = nodes[y].size;
+				nodes[x].size += nodes[y].size;
+				for(int i = 0 ; i < n_el && t ; i++)
+				{
+					if(nodes[i].parent == y)
+					{
+						nodes[i].parent = x;
+						t--;
+					}
+				}
+			}
+			else
+			{
+				t = nodes[x].size;
+				nodes[y].size += nodes[x].size;
+				for(int i = 0 ; i < n_el && t ; i++)
+				{
+					if(nodes[i].parent == x)
+					{
+						nodes[i].parent = y;
+						t--;
+					}
+				}
+			}
+		}
+};
+
 class Union_Find_LL: public Union_Find
 {
 
-private:
-	struct Node
-	{
-		Node *head;
-		Node *tail;
-		int index;
-		int size;
-
-		Node(int n=1): head(this),tail(NULL), index(n), size(1){}
-	};
-
-	vector<Node> nodes;
-	vector<Node *> components;
-
-public:
-	Union_Find_LL(int nel= 0): Union_Find(nel), nodes(n_el)
-	{
-		for(int i = 0 ; i < n_el ; i++)
+	private:
+		struct Node
 		{
-			make_set(i);
-		}
-	}
+			Node *head;
+			Node *tail;
+			int index;
+			int size;
 
-	~Union_Find_LL()
-	{
-		for(int i = 0 ; i < components.size() ; i++)
-			delete components[i];
-	}
+			Node(int n=1): head(this),tail(NULL), index(n), size(1){}
+		};
 
-	void make_set(int i)
-	{
-		nodes[i].index = i;
-		Node *ptr = new Node(i);
-		ptr->head = &nodes[i];
-		ptr->tail = &nodes[i];
-		nodes[i].head = ptr;
-		components.push_back(ptr);
-	}
+		vector<Node> nodes;
+		vector<Node *> components;
 
-	int find_set(int x)
-	{
-		return nodes[x].head->index;
-	}
-
-	void _union(int x, int y)
-	{
-		link(find_set(x),find_set(y));
-	}
-
-	void link(int x, int y)
-	{
-		if(components[x]->size >= components[y]->size)
+	public:
+		Union_Find_LL(int nel= 0): Union_Find(nel), nodes(n_el)
 		{
-			components[x]->size += components[y]->size;
-			components[x]->tail->tail = components[y]->head;
-			components[x]->tail = components[y]->tail;
-			Node *ptr = components[y]->head;
-			while(ptr)
+			for(int i = 0 ; i < n_el ; i++)
 			{
-				ptr->head = components[x];
-				ptr = ptr->tail;
+				make_set(i);
 			}
 		}
-		else
+
+		~Union_Find_LL()
 		{
-			components[y]->size += components[x]->size;
-			components[y]->tail->tail = components[x]->head;
-			components[y]->tail = components[x]->tail;
-			Node *ptr = components[x]->head;
-			while(ptr)
+			for(int i = 0 ; i < components.size() ; i++)
+				delete components[i];
+		}
+
+		void make_set(int i)
+		{
+			nodes[i].index = i;
+			Node *ptr = new Node(i);
+			ptr->head = &nodes[i];
+			ptr->tail = &nodes[i];
+			nodes[i].head = ptr;
+			components.push_back(ptr);
+		}
+
+		int find_set(int x)
+		{
+			return nodes[x].head->index;
+		}
+
+		void _union(int x, int y)
+		{
+			link(find_set(x),find_set(y));
+		}
+
+		void link(int x, int y)
+		{
+			if(components[x]->size >= components[y]->size)
 			{
-				ptr->head = components[y];
-				ptr = ptr->tail;
+				components[x]->size += components[y]->size;
+				components[x]->tail->tail = components[y]->head;
+				components[x]->tail = components[y]->tail;
+				Node *ptr = components[y]->head;
+				while(ptr)
+				{
+					ptr->head = components[x];
+					ptr = ptr->tail;
+				}
+			}
+			else
+			{
+				components[y]->size += components[x]->size;
+				components[y]->tail->tail = components[x]->head;
+				components[y]->tail = components[x]->tail;
+				Node *ptr = components[x]->head;
+				while(ptr)
+				{
+					ptr->head = components[y];
+					ptr = ptr->tail;
+				}
 			}
 		}
-	}
 
-	void print_parents()
-	{
-		//TODO
-	}
+		void print_parents()
+		{
+			//TODO
+		}
 };
 
 class Union_Find_Tree: public Union_Find
@@ -172,11 +240,9 @@ public:
 
 class Queue
 {
-protected:
-	int tam;
-
 public:
-	virtual void build_heap(vector<float> h) = 0;
+	int tam;
+	virtual void build_heap(int src) = 0;
 	virtual int extract_min() = 0;
 	virtual void decrease_key(int pos,float key) = 0;
 
@@ -197,9 +263,9 @@ private:
 	vector<int> pos_holder;
 
 public:
-	Heap(vector<float> h): Queue(h.size()), H(tam), pos_holder(tam)
+	Heap(int nel,int src = 0): Queue(nel), H(tam), pos_holder(tam)
 	{
-		build_heap(h);
+		build_heap(src);
 	}
 
 	void swp(int i, int j)
@@ -242,13 +308,19 @@ public:
 		}
 	}
 
-	void build_heap(vector<float> h)
+	void build_heap(int src)
 	{
+		H[src].pos = src;
+		H[src].val = 0;
+		pos_holder[src] = src;
 		for(int i = 0 ; i < tam ; i++)
 		{
-			pos_holder[i] = i;
-			H[i].pos = i;
-			H[i].val = h[i];
+			if(i != src)
+			{
+				pos_holder[i] = i;
+				H[i].pos = i;
+				H[i].val = numeric_limits<float>::max();
+			}
 		}
 
 		for(int i = tam/2-1 ; i >= 0 ; i--)
@@ -323,10 +395,7 @@ public:
 	~Graph()
 	{
 		for(int i = 0 ; i < n_edges ; i++)
-		{
-			//cout << "?" << endl;
 			delete edges[i];
-		}
 	}
 
 	void add_vert()
@@ -380,11 +449,64 @@ static bool sort_function(Edge *a, Edge *b)
 	return a->wgt < b->wgt;
 }
 
-vector<Edge> Kruskal(Graph &G, Union_Find *uf, float &cost)
+Union_Find * create_uf_struct(int op,Graph G)
 {
+	Union_Find *uf = NULL;
+	switch(op)
+	{
+		case 0:
+		{
+			uf = new Union_Find_LL(G.n_vert);
+			break;
+		}
+		case 1:
+		{
+			uf = new Union_Find_Tree(G.n_vert);
+			break;
+		}
+		case 2:
+		{
+			uf = new Union_Find_Vector(G.n_vert);
+			break;
+		}
+		default:
+			cerr << "Opção inválida" << endl;
+			exit(1);
+	}
+
+	return uf;
+}
+
+void delete_uf_struct(int op,Union_Find *uf)
+{
+	switch(op)
+	{
+		case 0:
+		{
+			delete (Union_Find_LL *) uf;
+			break;
+		}
+		case 1:
+		{
+			delete (Union_Find_Tree *) uf;
+			break;
+		}
+		case 2:
+		{
+			delete (Union_Find_Vector*) uf;
+			break;
+		}
+	}
+}
+
+vector<Edge> Kruskal(Graph &G, int op, float &cost)
+{
+	cout << "inicio do sort" << endl;
 	sort(G.edges.begin(),G.edges.end(),sort_function);
 	vector<Edge> A;
 	cost = 0;
+	Union_Find *uf = create_uf_struct(op,G);
+	cout << "inicio da formacao da arvore" << endl;
 	for(int i = 0 ; i < G.n_edges ; i++)
 	{
 		if(uf->find_set(G.edges[i]->va) != uf->find_set(G.edges[i]->vb))
@@ -393,6 +515,19 @@ vector<Edge> Kruskal(Graph &G, Union_Find *uf, float &cost)
 			A.push_back(*G.edges[i]);
 			cost += G.edges[i]->wgt;
 		}
+	}
+	delete_uf_struct(op,uf);
+	return A;
+}
+
+vector<Edge> Prim(Graph G, int op, float &cost)
+{
+	vector<Edge> A;
+	cost = 0;
+	Heap Hp(G.n_vert);
+	while(Hp.tam > 0)
+	{
+		/*FALTA TERMINAR PRIM*/
 	}
 	return A;
 }
@@ -410,7 +545,12 @@ int main(int argc, char * argv[])
 	bool works = true;
 	vector<Edge> res;
 	infile.open(argv[3]);
-
+	if(!infile.is_open())
+	{
+		cerr << "Problema na arbetura do arquivo de entrada!" << endl;
+		return 1;
+	}
+	cout << "inicio da construcao do grafo" << endl;
 	infile >> nver >> narestas;
 	Graph G(nver);
 	for(int i = 0 ; i < narestas ; i++)
@@ -419,41 +559,14 @@ int main(int argc, char * argv[])
 		G.add_edge(va,vb,w);
 	}
 	infile.close();
+	cout << "inicio do algoritmo" << endl;
+
+	int op = argv[2][0] - '0';
 	if(string(argv[1]) == "Kruskal")
-	{
-		Union_Find *uf = NULL;
-		switch(argv[2][0])
-		{
-			case '0':
-			{
-				uf = new Union_Find_LL(G.n_vert);
-				break;
-			}
-			case '1':
-			{
-				uf = new Union_Find_Tree(G.n_vert);
-				break;
-			}
-			default:
-				cerr << "Opção inválida" << endl;
-				return 1;
-		}
-		if(uf != NULL)
-			res = Kruskal(G,uf,cost);
-		switch(argv[2][0])
-		{
-			case '0':
-			{
-				delete (Union_Find_LL *) uf;
-				break;
-			}
-			case '1':
-			{
-				delete (Union_Find_Tree *) uf;
-				break;
-			}
-		}
-	}
+		res = Kruskal(G,op,cost);
+	else if(string(argv[1]) == "Prim")
+		res = Prim(G,op,cost);
+
 	outfile.open(argv[4],fstream::out);
 	outfile << cost << endl;
 	for(int i = 0 ; i < res.size() ; i++)
