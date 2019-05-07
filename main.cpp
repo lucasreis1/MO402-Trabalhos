@@ -245,6 +245,7 @@ public:
 	virtual void build_heap(int src) = 0;
 	virtual int extract_min() = 0;
 	virtual void decrease_key(int pos,float key) = 0;
+	virtual bool in_queue(int pos) = 0;
 
 	Queue(int n = 0): tam(n){}
 };
@@ -289,10 +290,10 @@ public:
 		return 2*i+2;
 	}
 
-	void heapify(float i)
+	void heapify(int i)
 	{
 		int l,r;
-		float smallest;
+		int smallest;
 
 		l = left(i);
 		r = right(i);
@@ -359,6 +360,16 @@ public:
 			h_pos = parent(h_pos);
 		}
 	}
+
+	bool in_queue(int pos)
+	{
+		return H[pos_holder[pos]].pos < tam;
+	}
+
+	float get_value(int pos)
+	{
+		return H[pos_holder[pos]].val;
+	}
 };
 
 struct Edge
@@ -367,7 +378,7 @@ struct Edge
 	int vb;
 	float wgt;
 
-	Edge(int i,int j,float w): va(i), vb(j), wgt(w){}
+	Edge(int i=0,int j=0,float w=0.0): va(i), vb(j), wgt(w){}
 };
 
 struct Vertex
@@ -417,9 +428,12 @@ public:
 		}
 		else
 		{
-			cout << "ERRO" << endl;
+			cerr << "Vértice inexistente" << endl;
+			exit(1);
 		}
 	}
+
+
 	
 	void print_graph()
 	{
@@ -449,24 +463,24 @@ static bool sort_function(Edge *a, Edge *b)
 	return a->wgt < b->wgt;
 }
 
-Union_Find * create_uf_struct(int op,Graph G)
+Union_Find * create_uf_struct(int op,int size)
 {
 	Union_Find *uf = NULL;
 	switch(op)
 	{
 		case 0:
 		{
-			uf = new Union_Find_LL(G.n_vert);
+			uf = new Union_Find_LL(size);
 			break;
 		}
 		case 1:
 		{
-			uf = new Union_Find_Tree(G.n_vert);
+			uf = new Union_Find_Tree(size);
 			break;
 		}
 		case 2:
 		{
-			uf = new Union_Find_Vector(G.n_vert);
+			uf = new Union_Find_Vector(size);
 			break;
 		}
 		default:
@@ -505,7 +519,7 @@ vector<Edge> Kruskal(Graph &G, int op, float &cost)
 	sort(G.edges.begin(),G.edges.end(),sort_function);
 	vector<Edge> A;
 	cost = 0;
-	Union_Find *uf = create_uf_struct(op,G);
+	Union_Find *uf = create_uf_struct(op,G.n_vert);
 	cout << "inicio da formacao da arvore" << endl;
 	for(int i = 0 ; i < G.n_edges ; i++)
 	{
@@ -520,14 +534,31 @@ vector<Edge> Kruskal(Graph &G, int op, float &cost)
 	return A;
 }
 
-vector<Edge> Prim(Graph G, int op, float &cost)
+vector<Edge> Prim(Graph G, int op, float &cost, int src=0)
 {
 	vector<Edge> A;
+	vector<Edge> Pi(G.n_vert);
 	cost = 0;
-	Heap Hp(G.n_vert);
+	Heap Hp(G.n_vert,src);
 	while(Hp.tam > 0)
 	{
-		/*FALTA TERMINAR PRIM*/
+		int u = Hp.extract_min();
+		vector<Edge *> adj = G.vertices[u].edg;
+		int nadj = G.vertices[u].n_edges;
+		for(int i = 0 ; i < nadj ; i++)
+		{
+			int viz = (adj[i]->va == u?adj[i]->vb:adj[i]->va);
+			if(Hp.in_queue(viz) && adj[i]->wgt < Hp.get_value(viz))
+			{
+				Hp.decrease_key(viz,adj[i]->wgt);
+				Pi[viz] = *adj[i];
+			}
+		}
+		if(u != src)
+		{
+			A.push_back(Pi[u]);
+			cost += Pi[u].wgt;
+		}
 	}
 	return A;
 }
