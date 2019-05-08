@@ -172,7 +172,10 @@ class Union_Find_LL: public Union_Find
 
 		void print_parents()
 		{
-			//TODO
+            for(int i = 0 ; i < n_el ; i++)
+            {
+                cout << "Node:" << i << "//Parent: " << find_set(i) << endl;
+            }
 		}
 };
 
