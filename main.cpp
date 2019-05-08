@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
 #include<algorithm> //sort
-#include<utility> //swap
 #include<fstream>
 #include<limits> //max_float
 
@@ -257,22 +256,27 @@ private:
 	struct Node
 	{
 		int pos;
+		int vert;
 		float val;
 	};
 
-	vector<Node> H;
-	vector<int> pos_holder;
+	vector<Node *> H;
+	vector<Node *> pos_store;
 
 public:
-	Heap(int nel,int src = 0): Queue(nel), H(tam), pos_holder(tam)
+	Heap(int nel,int src = 0): Queue(nel), H(tam), pos_store(tam)
 	{
 		build_heap(src);
 	}
 
-	void swp(int i, int j)
+	void swap(int i, int j)
 	{
-		swap(H[i],H[j]);
-		swap(pos_holder[i],pos_holder[j]);
+		float temp = H[i]->val;
+		int vtemp = H[i]->vert;
+		H[i]->val = H[j]->val;
+		H[j]->val = temp;
+		H[i]->vert = H[j]->vert;
+		H[j]->vert = vtemp;
 	}
 
 	int parent(int i)
@@ -297,29 +301,31 @@ public:
 		l = left(i);
 		r = right(i);
 		smallest = i;
-		if(l < tam && H[l].val < H[smallest].val)
+		if(l < tam && H[l]->val < H[smallest]->val)
 			smallest = l;
-		if(r < tam && H[r].val < H[smallest].val)
+		if(r < tam && H[r]->val < H[smallest]->val)
 			smallest = r;
 		if(i != smallest)
 		{
-			swp(i,smallest);
+			swap(i,smallest);
 			heapify(smallest);
 		}
 	}
 
 	void build_heap(int src)
 	{
-		H[src].pos = src;
-		H[src].val = 0;
-		pos_holder[src] = src;
+		H[src] = new Node;
+		pos_store[src] = H[src];
+		H[src]->pos = H[src]->vert = src;
+		H[src]->val = 0;
 		for(int i = 0 ; i < tam ; i++)
 		{
 			if(i != src)
 			{
-				pos_holder[i] = i;
-				H[i].pos = i;
-				H[i].val = numeric_limits<float>::max();
+				H[i] = new Node;
+				pos_store[i] = H[i];
+				H[i]->pos = H[i]->vert = i;
+				H[i]->val = numeric_limits<float>::max(); //infinito
 			}
 		}
 
@@ -335,41 +341,43 @@ public:
 			exit(1);
 		}
 		int min;
-		min = H[0].pos;
-		swp(0,tam-1);
+		min = H[0]->vert;
+		swap(0,tam-1);
 		tam--;
 		heapify(0);
-		cout << "- # - # -" << endl;
-		cout << "min = " << min << "//new_min = pos:" << H[0].pos << " val:" << H[0].val << endl;
 		return min;
 	}
 
-	void decrease_key(int pos, float key)
+	void decrease_key(int vert, float key)
 	{
-		int h_pos = pos_holder[pos];
-		if(H[h_pos].val < key)
+		int pos = pos_store[vert]->pos;
+		if(H[pos]->val < key)
 		{
 			cerr << "Tamanho inválido para decrease_key" << endl;
 			exit(1);
 		}
-
-		H[h_pos].val = key;
-
-		while(h_pos > 0 && H[h_pos].val < H[parent(h_pos)].val)
+		cout << "@@" << endl;
+		cout << vert << ' ' << pos_store[vert]->val << " key=" << key << endl;
+		H[pos]->val = key;
+		int p = parent(pos);
+		while(pos > 0 && H[pos]->val < H[p]->val)
 		{
-			swp(h_pos,parent(h_pos));
-			h_pos = parent(h_pos);
+			p = parent(pos);
+			swap(pos,p);
+			pos = p;
 		}
+		cout << "##" << endl;
+		cout << vert << ' ' << pos_store[vert]->val << endl;
 	}
 
-	bool in_queue(int pos)
+	bool in_queue(int vert)
 	{
-		return H[pos_holder[pos]].pos < tam;
+		return pos_store[vert]->pos < tam;
 	}
 
-	float get_value(int pos)
+	float get_value(int vert)
 	{
-		return H[pos_holder[pos]].val;
+		return pos_store[vert]->val;
 	}
 };
 
@@ -549,7 +557,8 @@ vector<Edge> Prim(Graph G, int op, float &cost, int src=0)
 		for(int i = 0 ; i < nadj ; i++)
 		{
 			int viz = (adj[i]->va == u?adj[i]->vb:adj[i]->va);
-			if(Hp.in_queue(viz) && adj[i]->wgt < Hp.get_value(viz))
+			float val = Hp.get_value(viz);
+			if(Hp.in_queue(viz) && adj[i]->wgt < val)
 			{
 				Hp.decrease_key(viz,adj[i]->wgt);
 				Pi[viz] = *adj[i];
