@@ -294,13 +294,12 @@ public:
 	{
 		int l,r;
 		int smallest;
-
 		l = left(i);
 		r = right(i);
 		smallest = i;
-		if(l <= tam && H[l].val < H[smallest].val)
+		if(l < tam && H[l].val < H[smallest].val)
 			smallest = l;
-		if(r <= tam && H[r].val < H[smallest].val)
+		if(r < tam && H[r].val < H[smallest].val)
 			smallest = r;
 		if(i != smallest)
 		{
@@ -337,9 +336,11 @@ public:
 		}
 		int min;
 		min = H[0].pos;
-		H[0] = H[tam-1];
+		swp(0,tam-1);
 		tam--;
 		heapify(0);
+		cout << "- # - # -" << endl;
+		cout << "min = " << min << "//new_min = pos:" << H[0].pos << " val:" << H[0].val << endl;
 		return min;
 	}
 
@@ -556,6 +557,7 @@ vector<Edge> Prim(Graph G, int op, float &cost, int src=0)
 		}
 		if(u != src)
 		{
+			cout << Pi[u].va << ' ' << Pi[u].vb << ' ' << Pi[u].wgt << endl;
 			A.push_back(Pi[u]);
 			cost += Pi[u].wgt;
 		}
@@ -597,7 +599,6 @@ int main(int argc, char * argv[])
 		res = Kruskal(G,op,cost);
 	else if(string(argv[1]) == "Prim")
 		res = Prim(G,op,cost);
-
 	outfile.open(argv[4],fstream::out);
 	outfile << cost << endl;
 	for(int i = 0 ; i < res.size() ; i++)
