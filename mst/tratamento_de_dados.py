@@ -68,7 +68,11 @@ else:
 	f.write(str(res[0]))
 	f.write('\n')
 	edges = res[1]
+	count = 0
 	f.write(str(len(edges)) + '\n')
 	for i in edges:
+		if(count%10000 == 0):
+			print "Imprimindo Edge %d..." %(count)
 		f.write(str(i[0]) + ' ' + str(i[1]) + ' ' + str(i[2]) + '\n')
+		count = count + 1
 	f.close()
