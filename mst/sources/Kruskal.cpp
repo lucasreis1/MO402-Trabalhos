@@ -35,28 +35,6 @@ Union_Find * create_uf_struct(int op,int size)
 	return uf;
 }
 
-/*void delete_uf_struct(int op,Union_Find *uf)
-{
-	switch(op)
-	{
-		case 0:
-		{
-			delete (Union_Find_LL *) uf;
-			break;
-		}
-		case 1:
-		{
-			delete (Union_Find_Tree *) uf;
-			break;
-		}
-		case 2:
-		{
-			delete (Union_Find_Vector*) uf;
-			break;
-		}
-	}
-}*/
-
 vector<Edge> Kruskal(Graph &G, int op, float &cost)
 {
 	std::cout << "inicio do sort" << std::endl;
