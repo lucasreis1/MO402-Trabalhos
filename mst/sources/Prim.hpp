@@ -1,4 +1,1 @@
-#include "Graph.hpp"
-#include "Heap.hpp"
-
-vector<Edge> Prim(Graph &G, int op, float &cost, int src=0);
+#include "Graph.hpp"#include "Heap.hpp"#include "NaivePriorityQueue.hpp"Queue * create_priority_queue(int op, int size, int src=0);vector<Edge> Prim(Graph &G, int op, float &cost, int src=0);
