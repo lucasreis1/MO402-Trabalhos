@@ -260,22 +260,29 @@ private:
 	struct Node
 	{
 		int pos;
+		int vert;
 		float val;
 	};
 
-	vector<Node> H;
-	vector<int> pos_holder;
+	vector<Node *> H;
+	vector<Node *> pos_store;
 
 public:
-	Heap(int nel,int src = 0): Queue(nel), H(tam), pos_holder(tam)
+	Heap(int nel,int src = 0): Queue(nel), H(tam), pos_store(tam)
 	{
 		build_heap(src);
+	}
+
+	~Heap()
+	{
+		for(int i = 0 ; i < H.size() ; i++)
+			delete H[i];
 	}
 
 	void swp(int i, int j)
 	{
 		swap(H[i],H[j]);
-		swap(pos_holder[i],pos_holder[j]);
+		swap(H[i]->pos,H[j]->pos);
 	}
 
 	int parent(int i)
@@ -300,9 +307,9 @@ public:
 		l = left(i);
 		r = right(i);
 		smallest = i;
-		if(l < tam && H[l].val < H[smallest].val)
+		if(l < tam && H[l]->val < H[smallest]->val)
 			smallest = l;
-		if(r < tam && H[r].val < H[smallest].val)
+		if(r < tam && H[r]->val < H[smallest]->val)
 			smallest = r;
 		if(i != smallest)
 		{
@@ -313,16 +320,20 @@ public:
 
 	void build_heap(int src)
 	{
-		H[src].pos = src;
-		H[src].val = 0;
-		pos_holder[src] = src;
+		H[src] = new Node();
+		H[src]->pos = src;
+		H[src]->vert = src;
+		H[src]->val = 0.0;
+		pos_store[src] = H[src];
 		for(int i = 0 ; i < tam ; i++)
 		{
 			if(i != src)
 			{
-				pos_holder[i] = i;
-				H[i].pos = i;
-				H[i].val = numeric_limits<float>::max();
+				H[i] = new Node();
+				H[i]->pos = i;
+				H[i]->vert = i;
+				H[i]->val = numeric_limits<float>::max();
+				pos_store[i] = H[i];
 			}
 		}
 
@@ -338,41 +349,39 @@ public:
 			exit(1);
 		}
 		int min;
-		min = H[0].pos;
+		min = H[0]->vert;
 		swp(0,tam-1);
 		tam--;
 		heapify(0);
-		cout << "- # - # -" << endl;
-		cout << "min = " << min << "//new_min = pos:" << H[0].pos << " val:" << H[0].val << endl;
 		return min;
 	}
 
-	void decrease_key(int pos, float key)
+	void decrease_key(int vert, float key)
 	{
-		int h_pos = pos_holder[pos];
-		if(H[h_pos].val < key)
+		int pos = pos_store[vert]->pos;
+		if(H[pos]->val < key)
 		{
 			cerr << "Tamanho inválido para decrease_key" << endl;
 			exit(1);
 		}
-
-		H[h_pos].val = key;
-
-		while(h_pos > 0 && H[h_pos].val < H[parent(h_pos)].val)
+		H[pos]->val = key;
+		int p = parent(pos);
+		while(pos > 0 && H[pos]->val < H[p]->val)
 		{
-			swp(h_pos,parent(h_pos));
-			h_pos = parent(h_pos);
+			swp(pos,p);
+			pos = p;
+			p = parent(pos);
 		}
 	}
 
-	bool in_queue(int pos)
+	bool in_queue(int vert)
 	{
-		return H[pos_holder[pos]].pos < tam;
+		return pos_store[vert]->pos < tam;
 	}
 
-	float get_value(int pos)
+	float get_value(int vert)
 	{
-		return H[pos_holder[pos]].val;
+		return pos_store[vert]->val;
 	}
 };
 
@@ -538,7 +547,7 @@ vector<Edge> Kruskal(Graph &G, int op, float &cost)
 	return A;
 }
 
-vector<Edge> Prim(Graph G, int op, float &cost, int src=0)
+vector<Edge> Prim(Graph &G, int op, float &cost, int src=0)
 {
 	vector<Edge> A;
 	vector<Edge> Pi(G.n_vert);
@@ -560,7 +569,6 @@ vector<Edge> Prim(Graph G, int op, float &cost, int src=0)
 		}
 		if(u != src)
 		{
-			cout << Pi[u].va << ' ' << Pi[u].vb << ' ' << Pi[u].wgt << endl;
 			A.push_back(Pi[u]);
 			cost += Pi[u].wgt;
 		}
@@ -603,9 +611,9 @@ int main(int argc, char * argv[])
 	else if(string(argv[1]) == "Prim")
 		res = Prim(G,op,cost);
 	outfile.open(argv[4],fstream::out);
-	outfile << cost << endl;
+	outfile << cost;
 	for(int i = 0 ; i < res.size() ; i++)
-		outfile << res[i].va << ' ' << res[i].vb << ' ' << res[i].wgt << endl;
+		outfile << endl << res[i].va << ' ' << res[i].vb << ' ' << res[i].wgt;
 	outfile.close();
 	return 0;
 }
