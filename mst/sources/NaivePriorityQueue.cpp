@@ -7,23 +7,15 @@ NaivePriorityQueue::NaivePriorityQueue(int nel, int src): Queue(nel), Q(tam)
     build_heap(src);
 }
 
-NaivePriorityQueue::~NaivePriorityQueue()
-{
-    for(unsigned int i = 0 ; i < Q.size() ; i++)
-        delete Q[i];
-}
-
 void NaivePriorityQueue::build_heap(int src) {
-    Q[src] = new Node();
-    Q[src]->vert = src;
-    Q[src]->val = 0.0;
+    Q[src].vert = src;
+    Q[src].val = 0.0;
     for(int i = 0 ; i < tam ; i++)
     {
         if(i != src)
         {
-            Q[i] = new Node();
-            Q[i]->vert = i;
-            Q[i]->val = std::numeric_limits<float>::max();
+            Q[i].vert = i;
+            Q[i].val = std::numeric_limits<float>::max();
         }
     }
 }
@@ -34,14 +26,14 @@ int NaivePriorityQueue::extract_min() {
         std::cerr << "Erro no tamanho do heap" << std::endl;
         exit(1);
     }
-    int min;
-    int min_vert;
+    float min = 0.0;
+    int min_vert = 0;
     int min_index = 0;
     for (int i = 0 ; i < tam ; i++)
     {
-        if (Q[i]->val < min || i == 0) {
-            min = Q[i]->val;
-            min_vert = Q[i]->vert;
+        if (Q[i].val < min || i == 0) {
+            min = Q[i].val;
+            min_vert = Q[i].vert;
             min_index = i;
         }
     }
@@ -54,15 +46,15 @@ int NaivePriorityQueue::extract_min() {
 void NaivePriorityQueue::decrease_key(int vert, float key) {
     for (int i = 0 ; i < tam ; i++)
     {
-        if (Q[i]->vert == vert)
-            Q[i]->val = key;
+        if (Q[i].vert == vert)
+            Q[i].val = key;
     }
 }
 
 bool NaivePriorityQueue::in_queue(int vert) {
     for (int i = 0 ; i < tam ; i++)
     {
-        if (Q[i]->vert == vert)
+        if (Q[i].vert == vert)
             return true;
     }
     return false;
@@ -71,8 +63,8 @@ bool NaivePriorityQueue::in_queue(int vert) {
 float NaivePriorityQueue::get_value(int vert) {
     for (int i = 0 ; i < tam ; i++)
     {
-        if (Q[i]->vert == vert)
-            return Q[i]->val;
+        if (Q[i].vert == vert)
+            return Q[i].val;
     }
     return 0.0;
 }

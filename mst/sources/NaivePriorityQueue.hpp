@@ -11,14 +11,14 @@ private:
     {
         int vert;
         float val;
+
+        Node(int v=0,float vl=0.0): vert(v), val(vl){}
     };
 
-    vector<Node *> Q;
+    vector<Node> Q;
 
 public:
     NaivePriorityQueue(int nel,int src);
-
-    ~NaivePriorityQueue();
 
     void build_heap(int src);
 

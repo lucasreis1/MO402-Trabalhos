@@ -25,31 +25,9 @@ void Union_Find_Vector::_union(int x,int y)
 
 void Union_Find_Vector::link(int x,int y)
 {
-	int t;
-	if(nodes[x].size >= nodes[y].size)
+	for(int i = 0 ; i < n_el; i++)
 	{
-		t = nodes[y].size;
-		nodes[x].size += nodes[y].size;
-		for(int i = 0 ; i < n_el && t ; i++)
-		{
-			if(nodes[i].parent == y)
-			{
-				nodes[i].parent = x;
-				t--;
-			}
-		}
-	}
-	else
-	{
-		t = nodes[x].size;
-		nodes[y].size += nodes[x].size;
-		for(int i = 0 ; i < n_el && t ; i++)
-		{
-			if(nodes[i].parent == x)
-			{
-				nodes[i].parent = y;
-				t--;
-			}
-		}
+		if(nodes[i].parent == y)
+			nodes[i].parent = x;
 	}
 }

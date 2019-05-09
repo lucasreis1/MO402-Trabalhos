@@ -55,5 +55,6 @@ vector<Edge> Prim(Graph &G, int op, float &cost, int src)
 			cost += Pi[u].wgt;
 		}
 	}
+	delete Q;
 	return A;
 }
