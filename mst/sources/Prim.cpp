@@ -29,7 +29,7 @@ Queue * create_priority_queue(int op, int size, int src)
     return Q;
 }
 
-vector<Edge> Prim(Graph &G, int op, float &cost, int src)
+vector<Edge> Prim(Graph &G, int op, double &cost, int src)
 {
 	vector<Edge> A;
 	vector<Edge> Pi(G.n_vert);
@@ -43,7 +43,7 @@ vector<Edge> Prim(Graph &G, int op, float &cost, int src)
 		for(int i = 0 ; i < nadj ; i++)
 		{
 			int viz = (adj[i]->va == u?adj[i]->vb:adj[i]->va);
-			if(Q->in_queue(viz) && adj[i]->wgt < Q->get_value(viz))
+			if(Q->in_queue(viz) && adj[i]->wgt <= Q->get_value(viz))
 			{
 				Q->decrease_key(viz,adj[i]->wgt);
 				Pi[viz] = *adj[i];

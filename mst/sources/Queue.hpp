@@ -11,6 +11,5 @@ public:
 	virtual float get_value(int vert) = 0; //Retorna o valor do elemento vert na queue
 
 	Queue(int n = 0);
-
 	virtual ~Queue() = default;
 };

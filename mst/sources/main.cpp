@@ -4,6 +4,7 @@
 #include<chrono> //medir tempo
 #include<iostream>
 #include<fstream> //leitura de arquivos
+#include<algorithm>
 
 using namespace std;
 
@@ -16,7 +17,8 @@ int main(int argc, char * argv[])
 	}
 	fstream infile,outfile;
 	int nver,narestas,va,vb;
-	float w,cost;
+	float w;
+	double cost;
 	vector<Edge> res;
 	infile.open(argv[3]);
 	if(!infile.is_open())
@@ -51,10 +53,9 @@ int main(int argc, char * argv[])
 	chrono::milliseconds elapsed = chrono::duration_cast<chrono::milliseconds>(end-start);
 	cout << "Tempo de execução do algoritmo: " << elapsed.count() << endl;
 	outfile.open(argv[4],fstream::out);
-	outfile.precision(4);
 	outfile << fixed << cost;
 	for(unsigned int i = 0 ; i < res.size() ; i++)
-		outfile << fixed << endl << res[i].va << ' ' << res[i].vb << ' ' << res[i].wgt;
+		outfile << endl << fixed << res[i].va << ' ' << res[i].vb << ' ' << res[i].wgt;
 	outfile.close();
 	return 0;
 }

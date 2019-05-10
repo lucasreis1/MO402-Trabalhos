@@ -25,12 +25,11 @@ int NaivePriorityQueue::extract_min() {
     int min_index = 0;
     for (unsigned int i = 0 ; i < Q.size() ; i++)
     {
-        if ((Q[i].val < min || i== 0) && Q[i].is_inqueue) {
+        if ((Q[i].val <= min || i== 0) && Q[i].is_inqueue) {
             min = Q[i].val;
             min_index = i;
         }
     }
-
     Q[min_index].is_inqueue = false;
     tam--;
     return min_index;
@@ -57,4 +56,3 @@ float NaivePriorityQueue::get_value(int vert) {
     }
     return Q[vert].val;
 }
-

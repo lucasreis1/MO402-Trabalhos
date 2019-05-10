@@ -7,4 +7,4 @@ bool sort_function(Edge *a, Edge *b);
 
 Union_Find * create_uf_struct(int op,int size);
 
-vector<Edge> Kruskal(Graph &G, int op, float &cost);
+vector<Edge> Kruskal(Graph &G, int op, double &cost);
