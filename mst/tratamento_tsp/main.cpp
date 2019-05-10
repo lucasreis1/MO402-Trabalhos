@@ -49,7 +49,6 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	cout << "Escrevendo arquivo" << endl;
-	out.precision(2);
 	out << sz << endl <<sz*(sz-1)/2;
 	for(unsigned int i = 0 ; i < sz ; i++)
 	{
