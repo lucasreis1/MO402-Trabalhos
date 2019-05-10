@@ -1,4 +1,4 @@
-EXEC_NAME = main
+EXE = main
 
 C++ = g++
 SRC_DIR = sources
@@ -7,17 +7,20 @@ OBJ_DIR = obj
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-CFLAGS = -std=c++11 -Wall
+CFLAGS = -std=c++11 -Wall -O3
 
 .PHONY: all clean
 
-all: EXE
+all: $(EXE)
 
-EXE: $(OBJ)
-	$(C++) $^ -o $(EXEC_NAME)
+$(EXE): $(OBJ)
+	$(C++) $^ -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(C++) $(CFLAGS) -c $< -o $@
+
+f:
+	g++ tratamento_tsp/main.cpp -O3 -o tratamento_tsp/tratamento_de_dados
 
 clean:
 	rm $(OBJ)

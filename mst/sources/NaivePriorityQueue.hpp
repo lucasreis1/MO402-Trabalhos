@@ -9,10 +9,10 @@ private:
 
     struct Node
     {
-        int vert;
         float val;
+        bool is_inqueue;
 
-        Node(int v=0,float vl=0.0): vert(v), val(vl){}
+        Node(float vl=0.0): val(vl),is_inqueue(true){}
     };
 
     vector<Node> Q;

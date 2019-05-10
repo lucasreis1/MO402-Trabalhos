@@ -73,6 +73,6 @@ else:
 	for i in edges:
 		if(count%10000 == 0):
 			print "Imprimindo Edge %d..." %(count)
-		f.write(str(i[0]) + ' ' + str(i[1]) + ' ' + str(i[2]) + '\n')
+		f.write("%d %d %.3f\n" %(i[0],i[1],i[2]))
 		count = count + 1
 	f.close()
