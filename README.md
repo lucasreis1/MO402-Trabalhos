@@ -2,7 +2,7 @@
 
 Falta fazer:
 - ~~Os algoritmos Prim e Kruskal divergem no valor minimo entre si, encontrar qual dos dois (ou se os dois) estao errados e arrumar~~
-- Verificar por que o tempo de execuçao entre as estruturas mais ingenuas esta parecido com as estruturas que deveriam ser eficientes, as vezes ate mais rapido
+- ~~Verificar por que o tempo de execuçao entre as estruturas mais ingenuas esta parecido com as estruturas que deveriam ser eficientes, as vezes ate mais rapido~~ **(Os algoritmos estão corretos, mas as estruturas ingenuas sao melhores para grafos cheios. Adcionei uma maneira de gerar grafos esparsos no programa de tratamento)**
 - ~~Implementação do Kruskal usando um vetor simples como union-find~~
 - ~~Testar implementação do Prim usando heap~~
 - ~~Implementação do Prim usando vetor simples~~
