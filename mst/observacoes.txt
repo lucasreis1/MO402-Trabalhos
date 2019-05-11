@@ -1,0 +1,6 @@
+Observações:
+
+Para grafos cheios, as implementações tem resultados iguais ou até melhores que as outras estruturas
+Para grafos esparsos, as implementações 0 e 1 do Kruskal se igualam, e a implementação 2 é muito mais lenta.
+Para grafos esparsos, a implementação 0 do Prim é muito mais rápida
+Para grafos esparsos grandes (como o da China), as implementações mais rápidas são muito mais eficientes que as mais ingênuas

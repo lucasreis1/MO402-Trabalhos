@@ -19,8 +19,9 @@ $(EXE): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(C++) $(CFLAGS) -c $< -o $@
 
-f:
+tdd:
 	g++ tratamento_tsp/main.cpp -O3 -o tratamento_tsp/tratamento_de_dados
 
 clean:
 	rm $(OBJ)
+	rm $(EXE)

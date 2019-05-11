@@ -36,28 +36,12 @@ void Union_Find_LL::_union(int x, int y)
 
 void Union_Find_LL::link(int x, int y)
 {
-	if(components[x]->size >= components[y]->size)
+	components[x]->tail->tail = components[y]->head;
+	components[x]->tail = components[y]->tail;
+	Node *ptr = components[y]->head;
+	while(ptr)
 	{
-		components[x]->size += components[y]->size;
-		components[x]->tail->tail = components[y]->head;
-		components[x]->tail = components[y]->tail;
-		Node *ptr = components[y]->head;
-		while(ptr)
-		{
-			ptr->head = components[x];
-			ptr = ptr->tail;
-		}
-	}
-	else
-	{
-		components[y]->size += components[x]->size;
-		components[y]->tail->tail = components[x]->head;
-		components[y]->tail = components[x]->tail;
-		Node *ptr = components[x]->head;
-		while(ptr)
-		{
-			ptr->head = components[y];
-			ptr = ptr->tail;
-		}
+		ptr->head = components[x];
+		ptr = ptr->tail;
 	}
 }

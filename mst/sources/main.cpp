@@ -12,7 +12,7 @@ int main(int argc, char * argv[])
 {
 	if(argc < 5)
 	{
-		cerr << "Uso: ./main <Alg> <x> <arq_in> <arq_out>" << endl;
+		cerr << "Uso: ./main <kruskal/prim> <x> <arq-in> <arq-out>" << endl;
 		return 1;
 	}
 	fstream infile,outfile;
@@ -38,20 +38,25 @@ int main(int argc, char * argv[])
 	int op = argv[2][0] - '0';
 	chrono::system_clock::time_point start,end;
 	cout << "Iniciando algoritmo..." << endl;
-	if(string(argv[1]) == "Kruskal")
+	if(string(argv[1]) == "kruskal")
 	{
 		start = chrono::system_clock::now();
 		res = Kruskal(G,op,cost);
 		end = chrono::system_clock::now();
 	}
-	else if(string(argv[1]) == "Prim")
+	else if(string(argv[1]) == "prim")
 	{
 		start = chrono::system_clock::now();
 		res = Prim(G,op,cost);
 		end = chrono::system_clock::now();
 	}
+	else
+	{
+		cerr << "Opção inválida" << endl;
+		return 1;
+	}
 	chrono::milliseconds elapsed = chrono::duration_cast<chrono::milliseconds>(end-start);
-	cout << "Tempo de execução do algoritmo: " << elapsed.count() << endl;
+	cout << "Tempo de execução do algoritmo: " << elapsed.count() << " ms" << endl;
 	outfile.open(argv[4],fstream::out);
 	outfile << fixed << cost;
 	for(unsigned int i = 0 ; i < res.size() ; i++)

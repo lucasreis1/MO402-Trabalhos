@@ -2,6 +2,7 @@
 #include<fstream>
 #include<cmath>
 #include<vector>
+#include<string>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int main(int argc, char* argv[])
 {
 	fstream in;
 	vector<Vertex> vetor;
-	in.open(argv[1]);
+	in.open(argv[2]);
 	if(!in.is_open())
 	{
 		cerr << "Erro de leitura" << endl;
@@ -38,10 +39,9 @@ int main(int argc, char* argv[])
 		vetor.push_back(Vertex(id,a,b));
 	in.close();
 	unsigned int sz = vetor.size();
-	int filesize = string(argv[1]).size();
-	string out_file = string(argv[1]).substr(0,filesize-4) + ".txt";
+	int filesize = string(argv[2]).size();
+	string out_file = string(argv[2]).substr(0,filesize-4) + ".txt";
 	fstream out;
-	cout << out_file << endl;
 	out.open(out_file, ios::out);
 	if(!out.is_open())
 	{
@@ -49,11 +49,29 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	cout << "Escrevendo arquivo" << endl;
-	out << sz << endl <<sz*(sz-1)/2;
-	for(unsigned int i = 0 ; i < sz ; i++)
+	if(string(argv[1]) == "f")
 	{
-		for(unsigned int j = i+1 ; j < sz ; j++)
-			out << fixed << endl << i << ' ' << j << ' ' << euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y);
+		out << sz << endl <<sz*(sz-1)/2;
+		for(unsigned int i = 0 ; i < sz ; i++)
+		{
+			for(unsigned int j = i+1 ; j < sz ; j++)
+				out << fixed << endl << i << ' ' << j << ' ' << euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y);
+		}
+	}
+	else
+	{
+		int n_ar = stoi(argv[3]);
+		out << sz << endl << sz*n_ar;
+		for(unsigned int i = 0 ; i < sz ; i++)
+		{
+			unsigned int j = (i+1)%sz;
+			for(unsigned int k = 0 ; k < n_ar ; k++)
+			{
+				out << fixed << endl << i << ' ' << j << ' ' << euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y);
+				j = (j+1)%sz;
+			}
+
+		}
 	}
 	out.close();
 	return 0;

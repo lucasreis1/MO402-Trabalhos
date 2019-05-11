@@ -12,9 +12,8 @@ class Union_Find_LL: public Union_Find
 			Node *head;
 			Node *tail;
 			int index;
-			int size;
 
-			Node(int n=1): head(this),tail(NULL), index(n), size(1){}
+			Node(int n=1): head(this),tail(NULL), index(n){}
 		};
 
 		vector<Node> nodes;

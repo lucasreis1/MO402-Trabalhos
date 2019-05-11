@@ -1,0 +1,9 @@
+-Kruskal (3 opções)
+* 0 - Utiliza de listas encadeadas para controlar os conjuntos, como descrito em (21.2) no livro do Cormen
+* 1 - Utiliza a implementação de floresta de conjuntos disjuntos, com otimizações de path compression e union by rank, como descrito em (21.3) no livro do Cormen
+* 2 - Utiliza uma implementação extremamente ingênua, com apenas um vetor armazenando o valor do conjunto a qual cada vértice pertence. Find_Set tem custo O(1), mas Union tem custo O(V)
+
+-Prim (3 opções)
+* 0 - Utiliza um heap mínimo binário para controle do peso dos vértices, como descrito no caítulo 6 do livro do Cormen
+* 1 - Utiliza uma implementação ingênua, com um vetor armazenado os custos de cada vértice. Decrease_key tem custo O(1), mas Extract_Min tem custo O(V)
+* 2 - Utiliza um heap de Fibonacci para controle do peso dos vértices, como descrito no caítulo 19 do livro do Cormen
