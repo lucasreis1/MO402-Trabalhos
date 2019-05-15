@@ -21,7 +21,7 @@ class Fibonacci: public Queue
 {
 private:
 
-	int n, size;
+	int n;
 	Node *min;
 	vector<Node *> roots;
 
@@ -38,9 +38,9 @@ public:
 
 	void update_min(Fibonacci *H, Node *x);
 
-	void fib_join_root(Node *x, Fibonacci *H);
+	void fib_join_root(Node *x);
 
-	void fib_remove_root(Node *x, Fibonacci *H);
+	void fib_remove_root(Node *x);
 
 	void fib_insert(Fibonacci *H, Node *x);
 

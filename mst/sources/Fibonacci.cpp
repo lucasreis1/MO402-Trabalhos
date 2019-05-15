@@ -8,7 +8,22 @@ Fibonacci::Fibonacci(int size, int src)
 
 void Fibonacci::set_size(int i)
 {
-	this->size = i;
+	this->tam = i;
+}
+
+void Fibonacci::fib_insert(Fibonacci *H, Node *x)
+{
+
+	x->grau = 0;
+	x->pai = NULL;
+	x->filho = NULL;
+	x->marca = false;
+	x->esquerdo = x;
+	x->direito = x;
+
+	fib_join_root(x);
+
+	update_min(H, x);
 }
 
 
@@ -16,9 +31,10 @@ void Fibonacci::build_heap(int src)
 {
 	int i;
 
-	if(this->size)
+	if(this->tam)
 	{
 		Node *x = new Node();
+		this->pos_store.reserve(this->tam+1);
 
 		this->min = x;
 		this->n = 1;
@@ -26,17 +42,17 @@ void Fibonacci::build_heap(int src)
 		x->chave = 0.0;
 		x->vert = src;
 
-		pos_store[src] = x;
+		this->pos_store[src] = x;
 
 		fib_insert(this, x);
 
-		for(i = 0 ; i < this->size ; i++)
+		for(i = 0 ; i < this->tam ; i++)
 		{
 			if(i != src)
 			{
 				x = new Node();
 
-				x->chave = std::numeric_limits<float>::max();;
+				x->chave = std::numeric_limits<float>::max();
 
 				fib_insert(this, x);
 
@@ -54,34 +70,19 @@ void Fibonacci::update_min(Fibonacci *H, Node *x)
 		H->n = H->n + 1;
 	}
 }
-///////////////////////////////////////////////////////////////////////
-void Fibonacci::fib_join_root(Node *x, Fibonacci *H)
+
+void Fibonacci::fib_join_root(Node *x)
 {
 	(this->roots).insert(this->roots.end(), x);
 }
 
-void Fibonacci::fib_remove_root(Node *x, Fibonacci *H)
+void Fibonacci::fib_remove_root(Node *x)
 {
 	uint i;
 
-	for(i = 0; i < (H->roots).size() && (H->roots)[i] != x; i++) ;
+	for(i = 0; i < (this->roots).size() && (this->roots)[i] != x; i++) ;
 
-	(H->roots).erase((H->roots).begin()+i);
-}
-
-void Fibonacci::fib_insert(Fibonacci *H, Node *x)
-{
-
-	x->grau = 0;
-	x->pai = NULL;
-	x->filho = NULL;
-	x->marca = false;
-	x->esquerdo = x;
-	x->direito = x;
-
-	fib_join_root(x, H);
-
-	update_min(H, x);
+	(this->roots).erase((this->roots).begin()+i);
 }
 
 Node* Fibonacci::get_min()
@@ -110,29 +111,39 @@ Fibonacci* Fibonacci::fib_union(Fibonacci *H1, Fibonacci *H2)
 
 int Fibonacci::extract_min()
 {
+	if(this->tam < 1)
+	{
+		std::cerr << "Erro no tamanho do heap" << std::endl;
+		exit(1);
+	}
+
 	Node *z = get_min();
 	Node *aux;
-
 	int i;
 
 	if(z)
-	{
+	{	
 		pos_store[z->vert] = NULL;
-
-		for(aux = z->filho; aux->direito != z->filho; aux = aux->direito)
+		
+		for(aux = z->filho; aux && aux->direito != z->filho; aux = aux->direito)
 		{
-			fib_join_root(aux, this);
+			fib_join_root(aux);
 			aux->pai = NULL;
 		}
-		fib_join_root(aux, this);
-		aux->pai = NULL;
 
-		for(i = 0; this->roots[i] != z ;i++) ;
+		if(aux)
+		{
+			fib_join_root(aux);
+			aux->pai = NULL;
+		}
+
+		for(i = 0; this->roots[i] != z; i++) ;
 
 		(this->roots).erase((this->roots).begin() + i);
 
-		if(z == z->direito)
+		if(z == z->direito){
 			this->min = NULL;
+		}
 		else
 		{
 			this->min = z->direito;
@@ -140,7 +151,7 @@ int Fibonacci::extract_min()
 		}
 		this->n--;
 	}
-
+	printf("extract_min\n");
 	return z->vert;
 }
 
@@ -176,16 +187,17 @@ void Fibonacci::consolidate(Fibonacci *H)
 	{
 		if(A[i])
 		{
-			fib_join_root(A[i], H);
+			fib_join_root(A[i]);
 			if(!(H->min) || A[i]->chave < (H->min)->chave)
 				H->min = A[i];
 		}
 	}
+	printf("consolidate\n");
 }
 
 void Fibonacci::fib_heap_link(Fibonacci *H, Node *y, Node *x)
 {
-	fib_remove_root(y, H);
+	fib_remove_root(y);
 
 	y->pai = x;
 	y->direito = x->filho;
@@ -198,6 +210,7 @@ void Fibonacci::fib_heap_link(Fibonacci *H, Node *y, Node *x)
 
 void Fibonacci::decrease_key(int vert, float k)
 {
+	printf("%f\n", (this->min)->chave);
 	Node *y;
 	Node *x = this->pos_store[vert];
 
@@ -216,6 +229,7 @@ void Fibonacci::decrease_key(int vert, float k)
 		cascading_cut(this, y);
 	}
 
+	printf("%f\n", (this->min)->chave);
 	if(x->chave < (this->min)->chave)
 		this->min = x;
 }
@@ -231,7 +245,7 @@ void Fibonacci::cut(Fibonacci *H, Node *x, Node *y)
 
 	y->grau--;
 
-	fib_join_root(x, H);
+	fib_join_root(x);
 
 	x->pai = NULL;
 	x->marca = false;

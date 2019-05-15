@@ -35,14 +35,17 @@ vector<Edge> Prim(Graph &G, int op, double &cost, int src)
 	vector<Edge> Pi(G.n_vert);
 	cost = 0;
 	Queue * Q = create_priority_queue(op, G.n_vert, src);
+	
 	while(Q->tam > 0)
 	{
 		int u = Q->extract_min();
+
 		vector<Edge *> adj = G.vertices[u].edg;
 		int nadj = G.vertices[u].n_edges;
 		for(int i = 0 ; i < nadj ; i++)
 		{
 			int viz = (adj[i]->va == u?adj[i]->vb:adj[i]->va);
+	
 			if(Q->in_queue(viz) && adj[i]->wgt <= Q->get_value(viz))
 			{
 				Q->decrease_key(viz,adj[i]->wgt);
