@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
 	infile.open(argv[3]);
 	if(!infile.is_open())
 	{
-		cerr << "Problema na arbetura do arquivo de entrada!" << endl;
+		cerr << "Problema na abertura do arquivo de entrada!" << endl;
 		return 1;
 	}
 	cout << "Lendo grafo..." << endl;

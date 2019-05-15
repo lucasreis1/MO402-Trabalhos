@@ -18,7 +18,7 @@ Queue * create_priority_queue(int op, int size, int src)
         }
         case 2:
         {
-            /*Fibonacci Heaps*/
+            Q = new Fibonacci(size, src);
             break;
         }
         default:

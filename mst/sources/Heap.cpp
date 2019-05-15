@@ -109,12 +109,13 @@ void Heap::decrease_key(int vert, float key)
 		}
 	}
 
-	bool Heap::in_queue(int vert)
-	{
-		return pos_store[vert]->pos < tam;
-	}
+//se ainda esta na fila
+bool Heap::in_queue(int vert)
+{
+	return pos_store[vert]->pos < tam;
+}
 
-	float Heap::get_value(int vert)
-	{
-		return pos_store[vert]->val;
-	}
+float Heap::get_value(int vert)
+{
+	return pos_store[vert]->val;
+}
