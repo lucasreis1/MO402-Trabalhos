@@ -1,7 +1,4 @@
 #include<vector>
-#include<iostream>
-#include<utility> //swap
-#include <bits/stdc++.h> 
 #include "Queue.hpp"
 
 using std::vector;
@@ -33,8 +30,6 @@ public:
 	Fibonacci(int size, int src);
 
 	void build_heap(int src);
-
-	void set_size(int i);
 
 	void update_min(Fibonacci *H, Node *x);
 

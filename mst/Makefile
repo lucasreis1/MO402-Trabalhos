@@ -7,9 +7,9 @@ OBJ_DIR = obj
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-CFLAGS = -std=c++11 -Wall -O3
+CFLAGS = -std=c++11 -Wall -O3 -ggdb
 
-.PHONY: all clean
+.PHONY: all tdd clean
 
 all: $(EXE)
 
@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(C++) $(CFLAGS) -c $< -o $@
 
 tdd:
-	g++ tratamento_tsp/main.cpp -std=c++11 -O3 -o tratamento_tsp/tratamento_de_dados
+	g++ tratamento_tsp/main.cpp $(CFLAGS) -O3 -o tratamento_tsp/tratamento_de_dados
 
 clean:
 	rm $(OBJ)

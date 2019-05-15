@@ -1,14 +1,13 @@
 #include "Fibonacci.hpp"
+#include<iostream>
+#include<limits>
+#include<cmath>
+#include<stdio.h>
+#include<utility> //swap
 
-Fibonacci::Fibonacci(int size, int src)
+Fibonacci::Fibonacci(int size, int src): Queue(size)
 {
-	set_size(size);
 	build_heap(src);
-}
-
-void Fibonacci::set_size(int i)
-{
-	this->tam = i;
 }
 
 void Fibonacci::fib_insert(Fibonacci *H, Node *x)
@@ -210,7 +209,7 @@ void Fibonacci::fib_heap_link(Fibonacci *H, Node *y, Node *x)
 
 void Fibonacci::decrease_key(int vert, float k)
 {
-	printf("%f\n", (this->min)->chave);
+	//rintf("%f\n", (this->min)->chave);
 	Node *y;
 	Node *x = this->pos_store[vert];
 

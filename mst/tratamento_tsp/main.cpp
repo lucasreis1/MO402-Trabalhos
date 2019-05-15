@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		int n_ar = stoi(argv[3]);
+		unsigned int n_ar = stoi(argv[3]);
 		out << sz << endl << sz*n_ar;
 		for(unsigned int i = 0 ; i < sz ; i++)
 		{
