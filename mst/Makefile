@@ -7,7 +7,7 @@ OBJ_DIR = obj
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-CFLAGS = -std=c++11 -Wall -O3 -ggdb
+CFLAGS = -std=c++11 -Wall -O3
 
 .PHONY: all tdd clean
 
