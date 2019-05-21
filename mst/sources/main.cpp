@@ -4,7 +4,6 @@
 #include<chrono> //medir tempo
 #include<iostream>
 #include<fstream> //leitura de arquivos
-#include<algorithm>
 
 using namespace std;
 

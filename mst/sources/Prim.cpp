@@ -16,11 +16,6 @@ Queue * create_priority_queue(int op, int size, int src)
             Q = new NaivePriorityQueue(size, src);
             break;
         }
-        case 2:
-        {
-            Q = new Fibonacci(size, src);
-            break;
-        }
         default:
             std::cerr << "Opção inválida" << std::endl;
             exit(1);
