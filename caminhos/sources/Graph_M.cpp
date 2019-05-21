@@ -22,13 +22,16 @@ int Graph_M::add_vert()
 
 void Graph_M::add_edge(int va,int vb,float w)
 {
-	if(va >= n_vert || vb >= n_vert)
+	if(va < n_vert && vb < n_vert)
+	{
+	edges[va][vb].exist = true;
+	edges[va][vb].w = w;
+	}
+	else
 	{
 		std::cerr << "Vértice inválido para inserção" << std::endl;
 		exit(1);
 	}
-	edges[va][vb].exist = true;
-	edges[va][vb].w = w;
 }
 
 void Graph_M::print_edges()

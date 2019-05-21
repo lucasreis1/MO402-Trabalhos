@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Graph.hpp"
 #include<vector>
 
@@ -5,8 +7,7 @@ using std::vector;
 
 class Graph_A: public Graph
 {
-private:
-
+public:
 	struct Edge
 	{
 		int va;
@@ -15,6 +16,17 @@ private:
 
 		Edge(int i=0,int j=0,float w=0.0): va(i), vb(j), wgt(w){}
 	};
+
+	vector<Edge *> edges;
+
+
+	Graph_A(int nv);
+	~Graph_A();
+
+	int add_vert();
+	void add_edge(int va, int vb, float w=0.0);
+private:
+
 
 	struct Vertex
 	{
@@ -26,13 +38,4 @@ private:
 	};
 
 	vector<Vertex> vertices;
-	vector<Edge *> edges;
-
-public:
-
-	Graph_A(int nv);
-	~Graph_A();
-
-	int add_vert();
-	void add_edge(int va, int vb, float w=0.0);
 };

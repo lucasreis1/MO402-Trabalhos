@@ -28,9 +28,7 @@ void Graph_A::add_edge(int va, int vb, float w)
 		edges.push_back(new_e);
 		n_edges++;
 		vertices[va].edg.push_back(new_e);
-		vertices[vb].edg.push_back(new_e);
 		vertices[va].n_edges++;
-		vertices[vb].n_edges++;
 	}
 	else
 	{

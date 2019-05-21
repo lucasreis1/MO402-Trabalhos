@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(C++) $(CFLAGS) -c $< -o $@
 
 tdd:
-	g++ tratamento_tsp/main.cpp $(CFLAGS) -O3 -o tratamento_tsp/tratamento_de_dados
+	g++ tratamento_tsp/main.cpp $(CFLAGS) -o tratamento_tsp/tratamento_de_dados
 
 clean:
 	rm $(OBJ)

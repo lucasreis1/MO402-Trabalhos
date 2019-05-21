@@ -12,7 +12,8 @@
 - 
 # Trabalho 2
 - ~~Estrutura de matriz de adjacências - **Lucas**~~
-- Bellman Ford - **Lucas**
+- Organizar main (medir tempos, leitura e escrita de arquivos, etc...) - **Lucas**
+- ~~Bellman Ford - **Lucas**~~
 - Dijkstra
     - Naive     **David**
     - Binary Heap      **David**
