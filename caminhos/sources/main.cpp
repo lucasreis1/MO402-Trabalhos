@@ -7,14 +7,14 @@
 
 using namespace std;
 
-void print_path(vector<int> pred, int vert, int source)
+void print_path(vector<int> pred, int vert, int source, fstream &out)
 {
 	if(vert == source)
-		cout << source;
+		out << source;
 	else
 	{
-		print_path(pred,pred[vert],source);
-		cout << ' ' << vert;
+		print_path(pred,pred[vert],source,out);
+		out << fixed << ' ' << vert;
 	}
 }
 
@@ -48,11 +48,14 @@ int main(int argc, char * argv[])
 	infile.close();
 	vector<double> costs;
 	vector<int> pred = Bellman_Ford(G,source,costs);
+
+	outfile.open(argv[2],fstream::out);
+	outfile.precision(4);
 	for(int i = 0 ; i < G.n_vert ; i++)
 	{
-		cout << i << ": ";
-		print_path(pred,i,source);
-		cout << endl;
+		outfile << fixed << costs[i] << ' ';
+		print_path(pred,i,source,outfile);
+		outfile << endl;
 	}
 	return 0;
 }
