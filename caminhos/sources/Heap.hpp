@@ -33,7 +33,7 @@ public:
 
 	void heapify(int i);
 
-	void build_heap(int src);
+	void build_heap();
 
 	int extract_min();
 

@@ -5,7 +5,23 @@
 
 Heap::Heap(int nel,int src): Queue(nel), H(tam), pos_store(tam)
 {
-	build_heap(src);
+	H[src] = new Node();
+	H[src]->pos = src;
+	H[src]->vert = src;
+	H[src]->val = 0.0;
+	pos_store[src] = H[src];
+	for(int i = 0 ; i < tam ; i++)
+	{
+		if(i != src)
+		{
+			H[i] = new Node();
+			H[i]->pos = i;
+			H[i]->vert = i;
+			H[i]->val = std::numeric_limits<float>::max();
+			pos_store[i] = H[i];
+		}
+	}
+	build_heap();
 }
 
 Heap::~Heap()
@@ -53,25 +69,8 @@ void Heap::heapify(int i)
 	}
 }
 
-void Heap::build_heap(int src)
+void Heap::build_heap()
 {
-	H[src] = new Node();
-	H[src]->pos = src;
-	H[src]->vert = src;
-	H[src]->val = 0.0;
-	pos_store[src] = H[src];
-	for(int i = 0 ; i < tam ; i++)
-	{
-		if(i != src)
-		{
-			H[i] = new Node();
-			H[i]->pos = i;
-			H[i]->vert = i;
-			H[i]->val = std::numeric_limits<float>::max();
-			pos_store[i] = H[i];
-		}
-	}
-
 	for(int i = tam/2-1 ; i >= 0 ; i--)
 		heapify(i);
 }

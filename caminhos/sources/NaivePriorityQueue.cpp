@@ -4,10 +4,6 @@
 
 NaivePriorityQueue::NaivePriorityQueue(int nel, int src): Queue(nel), Q(tam)
 {
-    build_heap(src);
-}
-
-void NaivePriorityQueue::build_heap(int src) {
     for(int i = 0 ; i < tam ; i++)
     {
         if(i != src)
