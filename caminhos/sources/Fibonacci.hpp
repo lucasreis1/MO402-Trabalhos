@@ -1,4 +1,7 @@
 #include "Queue.hpp"
+#include<vector>
+
+using std::vector;
 
 class Fibonacci: public Queue
 {
@@ -13,29 +16,29 @@ private:
 		float chave;
 		bool marca;
 		bool inq;
-		Node(int v,float k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),marca(false),inq(true),vert(v),chave(k){}
-	}
+		Node(int v,float k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
+	};
 
 	int n;
 	vector<Node *> roots;
 	vector<Node *> pos_store;
 	Node *min;
 public:
-	void Fibonacci(int nel,int src);
+	Fibonacci(int nel,int src);
 
-	void ~Fibonacci();
+	~Fibonacci();
 
 	void insert_on_roots(Node *nd);
 
 	void remove_from_roots(Node *nd);
 
-	void Insert_Node(Node *nd);
+	void insert_node(Node *nd);
 
 	void link(Node *y, Node *x);
 
 	void consolidate();
 
-	void extract_min();
+	int extract_min();
 
 	void cut(Node *x, Node *y);
 
@@ -43,5 +46,5 @@ public:
 
 	void decrease_key(int vert,float key);
 
-	void in_queue(int vert);
-}
+	bool in_queue(int vert);
+};

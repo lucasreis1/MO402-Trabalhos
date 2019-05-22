@@ -56,8 +56,7 @@ int main(int argc, char * argv[])
     if(string(argv[1]) == "bellman-ford")
     {
         start = chrono::system_clock::now();
-        pred = Bellman_Ford(G,source,costs);
-		if (pred.empty()) {
+		if (Bellman_Ford(G,source,pred,costs)) {
 			cout << "o grafo contém um ciclo de peso negativo" << endl;	
 			return 1;
 		}

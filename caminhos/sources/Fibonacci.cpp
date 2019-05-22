@@ -4,7 +4,7 @@
 #include<cmath> //log2
 #include<utility> //swap
 
-Fibonacci::Fibonacci(int nel, int src): Queue(tam),min(NULL),n(0), roots(tam), pos_store(tam)
+Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(NULL)
 {
 	for(int i = 0 ; i < tam ; i++)
 	{
@@ -14,13 +14,13 @@ Fibonacci::Fibonacci(int nel, int src): Queue(tam),min(NULL),n(0), roots(tam), p
 		else
 			nd = new Node(i);
 		pos_store[i] = nd;
-		Insert_Node(nd);
+		insert_node(nd);
 	}
 }
 
 Fibonacci::~Fibonacci()
 {
-	for(int i = 0 ; i < pos_store.size() ; i++)
+	for(unsigned int i = 0 ; i < pos_store.size() ; i++)
 		delete pos_store[i];
 }
 
@@ -39,20 +39,21 @@ void Fibonacci::insert_on_roots(Node *nd)
 
 void Fibonacci::remove_from_roots(Node *nd)
 {
-	for(int i = 0 ; i < n && roots[i] != nd; i++)
+	int i;
+	for(i = 0 ; i < n && roots[i] != nd; i++)
 		;
 	if(n > 1)
 	{
 		nd->direita->esquerda = nd->esquerda;
 		nd->esquerda->direita = nd->direita;
 	}
-	roots.erase(roots.begin(),i);
+	roots.erase(roots.begin()+i);
 	n--;
 }
 
 void Fibonacci::insert_node(Node *nd)
 {
-	if(!min || nd.chave < min.chave)
+	if(!min || nd->chave < min->chave)
 		min = nd;
 	insert_on_roots(nd);
 }
@@ -75,22 +76,23 @@ void Fibonacci::link(Node *y, Node *x)
 		y->esquerda = y;
 	}
 	y->pai = x;
-	x.grau++;
+	x->grau++;
 	y->marca = false;
 }
 
 void Fibonacci::consolidate()
 {
-	vector<Node *> A(log2(n)+1,NULL);
+	int D = log2(n) + 1;
+	vector<Node *> A(D,NULL);
 	for(int i = 0 ; i < n ; i++)
 	{
 		Node *x = roots[i];
-		int d = x.grau;
+		int d = x->grau;
 		while(A[d])
 		{
 			Node *y = A[d];
-			if(x.chave > y.chave)
-				swap(x,y);
+			if(x->chave > y->chave)
+				std::swap(x,y);
 			link(y,x);
 			A[d] = NULL;
 			d++;
@@ -99,11 +101,12 @@ void Fibonacci::consolidate()
 		A[d] = x;
 	}
 	min = NULL;
-	for(int i = 0 ; i < log2(n)+1; i++)
+	roots.clear();
+	for(int i = 0 ; i < D; i++)
 	{
 		if(A[i])
 		{
-			if(!min || A[i].chave < min.chave)
+			if(!min || A[i]->chave < min->chave)
 			{
 				min = A[i];
 			}
@@ -120,20 +123,22 @@ int Fibonacci::extract_min()
 		std::cerr << "Impossível fazer extract_min pois heap está vazio" << std::endl;
 		exit(1);
 	}
-	Node *tmp = Node *nd = z->filho;
+	Node *tmp, *nd;
+	nd = tmp = z->filho;
 	if(nd) do
 	{
+		Node *ptr = nd->direita;
 		nd->pai = NULL;
 		nd->marca = false;
 		insert_on_roots(nd);
-		nd = nd->direita;
+		nd = ptr;
 	}while(nd != tmp);
 	remove_from_roots(z);
-	if(z == z.direita)
+	if(z == z->direita)
 		min = NULL;
 	else
 	{
-		min = z.direita;
+		min = z->direita;
 		consolidate();
 	}
 	n--;
@@ -200,11 +205,11 @@ void Fibonacci::decrease_key(int vert, float key)
 		cut(x,y);
 		cascading_cut(y);
 	}
-	if(x.chave < min.chave)
+	if(x->chave < min->chave)
 		min = x;
 }
 
-void Fibonacci::in_queue(int vert)
+bool Fibonacci::in_queue(int vert)
 {
-	return pos_store[v]->inq;
+	return pos_store[vert]->inq;
 }

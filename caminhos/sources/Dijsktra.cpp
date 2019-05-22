@@ -19,6 +19,9 @@ Queue * create_priority_queue(int op, int size, int src)
             Q = new NaivePriorityQueue(size, src);
             break;
         }
+        case 2:
+            Q = new Fibonacci(size, src);
+            break;
         default:
             std::cerr << "Opção inválida" << std::endl;
             exit(1);
@@ -48,12 +51,14 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
         {
             int va = G.vertices[u].edg[i]->va;
             int vb = G.vertices[u].edg[i]->vb;
-            if(d[vb] > d[va] + G.vertices[u].edg[i]->wgt)
+            if(Q->in_queue(vb) && d[vb] > d[va] + G.vertices[u].edg[i]->wgt)
             {
                 pred[vb] = va;
                 d[vb] = d[va] + G.vertices[u].edg[i]->wgt;
+                Q->decrease_key(vb,d[va] + G.vertices[u].edg[i]->wgt);
             }
         }
     }
+    delete Q;
     return pred;
 }

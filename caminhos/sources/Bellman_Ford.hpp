@@ -3,4 +3,4 @@
 
 using std::vector;
 
-vector<int> Bellman_Ford(Graph_A &G, int source, vector<double> &d);
+bool Bellman_Ford(Graph_A &G, int source, vector<int> &pred, vector<double> &d);
