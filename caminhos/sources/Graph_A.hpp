@@ -19,23 +19,20 @@ public:
 
 	vector<Edge *> edges;
 
+    struct Vertex
+    {
+        int number;
+        int n_edges;
+        vector<Edge *> edg;
+
+        Vertex(int i=0): number(i), n_edges(0){}
+    };
+
+    vector<Vertex> vertices;
 
 	Graph_A(int nv);
 	~Graph_A();
 
 	int add_vert();
 	void add_edge(int va, int vb, float w=0.0);
-private:
-
-
-	struct Vertex
-	{
-		int number;
-		int n_edges;
-		vector<Edge *> edg;
-
-		Vertex(int i=0): number(i), n_edges(0){}
-	};
-
-	vector<Vertex> vertices;
 };

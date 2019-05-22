@@ -20,12 +20,20 @@ vector<int> Bellman_Ford(Graph_A &G, int source, vector<double> &d)
 		{
 			int va = G.edges[i]->va;
 			int vb = G.edges[i]->vb;
-			if(d[va] + G.edges[i]->wgt <= d[vb])
+			if(d[va] + G.edges[i]->wgt < d[vb])
 			{
 				pred[vb] = va;
 				d[vb] = d[va] + G.edges[i]->wgt;
 			}
 		}
+	}
+	for (int i = 0 ; i < G.n_edges ; i++) 
+	{
+		int va = G.edges[i]->va;
+		int vb = G.edges[i]->vb;
+
+		if(d[va] + G.edges[i]->wgt < d[vb])	
+			return {};
 	}
 	return pred;
 }
