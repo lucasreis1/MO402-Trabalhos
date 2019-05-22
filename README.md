@@ -15,8 +15,8 @@
 - Organizar main (medir tempos, leitura e escrita de arquivos, etc...) - **Lucas**
 - ~~Bellman Ford - **Lucas**~~
 - Dijkstra
-    - Naive     **David**
-    - Binary Heap      **David**
+    - ~~Naive     **David**~~
+    - ~~Binary Heap      **David**~~
     - Fibonacci Heap **Lucas**
 - Floyd-Warshall **David**
 - Johnson   **Victória**
