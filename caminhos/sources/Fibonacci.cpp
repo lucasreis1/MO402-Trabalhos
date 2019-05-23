@@ -48,6 +48,7 @@ void Fibonacci::remove_from_roots(Node *nd)
 		nd->esquerda->direita = nd->direita;
 	}
 	roots.erase(roots.begin()+i);
+	roots.shrink_to_fit();
 	n--;
 }
 
@@ -82,7 +83,7 @@ void Fibonacci::link(Node *y, Node *x)
 
 void Fibonacci::consolidate()
 {
-	int D = log2(n) + 1;
+	int D = log2(tam) + 1;
 	vector<Node *> A(D,NULL);
 	for(int i = 0 ; i < n ; i++)
 	{
@@ -95,21 +96,20 @@ void Fibonacci::consolidate()
 				std::swap(x,y);
 			link(y,x);
 			A[d] = NULL;
-			d++;
 			i--;
+			d++;
 		}
 		A[d] = x;
 	}
 	min = NULL;
 	roots.clear();
+	n = 0;
 	for(int i = 0 ; i < D; i++)
 	{
 		if(A[i])
 		{
 			if(!min || A[i]->chave < min->chave)
-			{
 				min = A[i];
-			}
 			insert_on_roots(A[i]);
 		}
 	}
@@ -141,7 +141,6 @@ int Fibonacci::extract_min()
 		min = z->direita;
 		consolidate();
 	}
-	n--;
 	tam--;
 	z->inq = false;
 	return z->vert;
@@ -199,6 +198,8 @@ void Fibonacci::decrease_key(int vert, float key)
 		exit(1);
 	}
 	x->chave = key;
+	if(x->vert != vert)
+		std::cout << "??" << std::endl;
 	Node *y = x->pai;
 	if(y && x->chave < y->chave)
 	{

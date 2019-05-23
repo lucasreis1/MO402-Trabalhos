@@ -1,7 +1,7 @@
 #include "Graph_A.hpp" //Lista de adjacencias
 #include "Graph_M.hpp" //Matriz de adjacencias
 #include "Bellman_Ford.hpp"
-#include "Dijsktra.hpp"
+#include "Dijkstra.hpp"
 #include<vector>
 #include<chrono> //medir tempo
 #include<iostream>
@@ -13,7 +13,7 @@ void print_path(vector<int> pred, int vert, int source, fstream &out)
 {
 	if(vert == source)
 		out << source;
-	else
+	else if(pred[vert] != -1)
 	{
 		print_path(pred,pred[vert],source,out);
 		out << fixed << ' ' << vert;

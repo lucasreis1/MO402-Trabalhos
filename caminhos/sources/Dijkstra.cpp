@@ -1,4 +1,4 @@
-#include "Dijsktra.hpp"
+#include "Dijkstra.hpp"
 #include<limits> //max_float
 #include<iostream>
 
@@ -40,7 +40,7 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
             d[i] = std::numeric_limits<float>::max();
     }
     d[source] = 0.0;
-
+    pred[source] = source;
     Queue * Q = create_priority_queue(op, G.n_vert, source);
 
     while (Q->tam > 0)
@@ -51,11 +51,12 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
         {
             int va = G.vertices[u].edg[i]->va;
             int vb = G.vertices[u].edg[i]->vb;
-            if(d[vb] > d[va] + G.vertices[u].edg[i]->wgt)
+            float w = G.vertices[u].edg[i]->wgt;
+            if(Q->in_queue(vb) && d[vb] > d[va] + w)
             {
                 pred[vb] = va;
-                d[vb] = d[va] + G.vertices[u].edg[i]->wgt;
-                //Q->decrease_key(vb,d[va] + G.vertices[u].edg[i]->wgt);
+                d[vb] = d[va] + w;
+                Q->decrease_key(vb,d[va] + w);
             }
         }
     }
