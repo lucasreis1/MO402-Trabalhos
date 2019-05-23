@@ -198,7 +198,6 @@ void Fibonacci::decrease_key(int vert, float key)
 		exit(1);
 	}
 	x->chave = key;
-	if(x->vert != vert)
 	Node *y = x->pai;
 	if(y && x->chave < y->chave)
 	{
