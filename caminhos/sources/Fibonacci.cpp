@@ -199,7 +199,6 @@ void Fibonacci::decrease_key(int vert, float key)
 	}
 	x->chave = key;
 	if(x->vert != vert)
-		std::cout << "??" << std::endl;
 	Node *y = x->pai;
 	if(y && x->chave < y->chave)
 	{
