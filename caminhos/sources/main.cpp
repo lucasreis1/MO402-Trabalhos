@@ -2,6 +2,7 @@
 #include "Graph_M.hpp" //Matriz de adjacencias
 #include "Bellman_Ford.hpp"
 #include "Dijkstra.hpp"
+#include "Floyd_Warshall.hpp"
 #include<vector>
 #include<chrono> //medir tempo
 #include<iostream>
@@ -20,6 +21,13 @@ void print_path(vector<int> pred, int vert, int source, fstream &out)
 	}
 }
 
+Graph* initialize_graph(string alg, int nver) {
+    if (alg == "floyd-warshall")
+        return new Graph_M(nver);
+    else
+        return new Graph_A(nver);
+}
+
 int main(int argc, char * argv[])
 {
 	if(argc < 5)
@@ -33,6 +41,8 @@ int main(int argc, char * argv[])
 	float peso;
     vector<double> costs;
     vector<int> pred;
+    vector<vector<float>> d_n;
+    vector<vector<int>> p_n;
 
 	infile.open(argv[3]);
 	if(!infile.is_open())
@@ -43,11 +53,11 @@ int main(int argc, char * argv[])
 
 	cout << "Lendo grafo..." << endl;
 	infile >> nver >> narestas >> source;
-	Graph_A G(nver);
+    Graph* G = initialize_graph(string(argv[1]), nver);
 	for(int i = 0 ; i < narestas; i++)
 	{
 		infile >> va >> vb >> peso;
-		G.add_edge(va,vb,peso);
+		G->add_edge(va,vb,peso);
 	}
 	infile.close();
     int op = argv[2][0] - '0';
@@ -56,7 +66,7 @@ int main(int argc, char * argv[])
     if(string(argv[1]) == "bellman-ford")
     {
         start = chrono::system_clock::now();
-		if (Bellman_Ford(G,source,pred,costs)) {
+		if (Bellman_Ford((Graph_A &)*G,source,pred,costs)) {
 			cout << "o grafo contém um ciclo de peso negativo" << endl;	
 			return 1;
 		}
@@ -65,13 +75,13 @@ int main(int argc, char * argv[])
     else if(string(argv[1]) == "dijkstra")
     {
         start = chrono::system_clock::now();
-        pred = Dijkstra(G,op,source,costs);
+        pred = Dijkstra((Graph_A &)*G,op,source,costs);
         end = chrono::system_clock::now();
     }
     else if(string(argv[1]) == "floyd-warshall")
     {
         start = chrono::system_clock::now();
-        // floyd-warshall
+        p_n = Floyd_Warshall((Graph_M &)*G,op,d_n);
         end = chrono::system_clock::now();
     }
     else if(string(argv[1]) == "johnson")
@@ -90,11 +100,22 @@ int main(int argc, char * argv[])
 
 	outfile.open(argv[4],fstream::out);
 	outfile.precision(4);
-	for(int i = 0 ; i < G.n_vert ; i++)
+	for(int i = 0 ; i < G->n_vert ; i++)
 	{
-		outfile << fixed << costs[i] << ' ';
-		print_path(pred,i,source,outfile);
-		outfile << endl;
+        if (string(argv[1]) == "floyd-warshall")
+        {
+            for(int j = 0 ; j < G->n_vert ; j++)
+            {
+                outfile << fixed << d_n[i][j] << ' ';
+                print_path(p_n[i],j,i,outfile);
+                outfile << endl;
+            }
+        } else {
+            outfile << fixed << costs[i] << ' ';
+            print_path(pred,i,source,outfile);
+            outfile << endl;
+
+        }
 	}
 	return 0;
 }

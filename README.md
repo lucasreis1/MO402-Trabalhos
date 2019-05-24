@@ -18,5 +18,8 @@
     - ~~Naive     **David**~~
     - ~~Binary Heap      **David**~~
     - Fibonacci Heap **Lucas**
-- Floyd-Warshall **David**
+- ~~Floyd-Warshall    **David**~~
+    - ~~Floyd-Warshall    **David**~~
+    - ~~Slow All-Pairs Shortest Paths    **David**~~
+    - ~~Faster All-Pairs Shortest Paths    **David**~~
 - Johnson   **Victória**
