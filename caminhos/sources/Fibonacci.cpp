@@ -26,37 +26,33 @@ Fibonacci::~Fibonacci()
 
 void Fibonacci::insert_on_roots(Node *nd)
 {
-	roots.push_back(nd);
 	if(n)
 	{
-		roots[n-1]->direita = nd;
-		nd->direita = roots[0];
-		nd->esquerda = roots[n-1];
-		roots[0]->esquerda = nd;
+		min->direita->esquerda = nd;
+		nd->direita = min->direita;
+		nd->esquerda = min;
+		min->direita = nd;
 	}
+	else
+		nd->esquerda = nd->direita = nd;
 	n++;
 }
 
 void Fibonacci::remove_from_roots(Node *nd)
 {
-	int i;
-	for(i = 0 ; i < n && roots[i] != nd; i++)
-		;
 	if(n > 1)
 	{
 		nd->direita->esquerda = nd->esquerda;
 		nd->esquerda->direita = nd->direita;
 	}
-	roots.erase(roots.begin()+i);
-	roots.shrink_to_fit();
 	n--;
 }
 
 void Fibonacci::insert_node(Node *nd)
 {
+	insert_on_roots(nd);
 	if(!min || nd->chave < min->chave)
 		min = nd;
-	insert_on_roots(nd);
 }
 
 void Fibonacci::link(Node *y, Node *x)
@@ -73,21 +69,41 @@ void Fibonacci::link(Node *y, Node *x)
 	else
 	{
 		x->filho = y;
-		y->direita = y;
-		y->esquerda = y;
+		y->direita = y->esquerda = y;
 	}
+	/*					DEBUG ONLY					*/
+	x->nl += y->nl;
+	/*					DEBUG ONLY					*/
 	y->pai = x;
 	x->grau++;
 	y->marca = false;
+}
+
+void Fibonacci::print_roots()
+{
+	int cnt = 0;
+	int sum = 0;
+	Node *ptr = min;
+	do
+	{
+		std::cout << "vert=" << ptr->vert << "//grau=" << ptr->grau << "//num_el=" << ptr->nl << "//chave=" << ptr->chave << std::endl;
+		sum += ptr->nl;
+		ptr = ptr->direita;
+		cnt++;
+	}while(ptr != min);
+	std::cout << sum << std::endl;
 }
 
 void Fibonacci::consolidate()
 {
 	int D = log2(tam) + 1;
 	vector<Node *> A(D,NULL);
-	for(int i = 0 ; i < n ; i++)
+	Node *next, *ptr;
+	next = min->direita;
+	do
 	{
-		Node *x = roots[i];
+		Node *x = ptr = next;
+		next = next->direita;
 		int d = x->grau;
 		while(A[d])
 		{
@@ -96,23 +112,19 @@ void Fibonacci::consolidate()
 				std::swap(x,y);
 			link(y,x);
 			A[d] = NULL;
-			i--;
 			d++;
 		}
 		A[d] = x;
-	}
+	}while(ptr != min);
 	min = NULL;
-	roots.clear();
 	n = 0;
 	for(int i = 0 ; i < D; i++)
-	{
 		if(A[i])
 		{
+			insert_on_roots(A[i]);
 			if(!min || A[i]->chave < min->chave)
 				min = A[i];
-			insert_on_roots(A[i]);
 		}
-	}
 }
 
 int Fibonacci::extract_min()
@@ -146,7 +158,7 @@ int Fibonacci::extract_min()
 	return z->vert;
 }
 
-void Fibonacci::cut(Node *x, Node *y)
+void Fibonacci::cut(Node *x, Node *y) // x = filho, y = pai
 {
 	if(y->filho == x)
 	{
@@ -157,18 +169,23 @@ void Fibonacci::cut(Node *x, Node *y)
 			y->filho = x->esquerda;
 			x->direita->esquerda = x->esquerda;
 			x->esquerda->direita = x->direita;
-			x->direita = x;
-			x->esquerda = x;
 		}
 	}
 	else
 	{
 		x->direita->esquerda = x->esquerda;
 		x->esquerda->direita = x->direita;
-		x->direita = x;
-		x->esquerda = x;
 	}
 	y->grau--;
+	Node *ptr = y->pai;
+	/*					DEBUG ONLY					*/
+	y->nl -= x->nl;
+	while(ptr)
+	{
+		ptr->nl -= x->nl;
+		ptr = ptr->pai;
+	}
+	/*					DEBUG ONLY					*/
 	insert_on_roots(x);
 	x->pai = NULL;
 	x->marca = false;

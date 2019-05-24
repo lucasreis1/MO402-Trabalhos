@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 	cout << "Escrevendo arquivo" << endl;
 	if(string(argv[1]) == "f")
 	{
-		out << sz << endl <<sz*(sz-1)/2;
+		out << sz << endl <<sz*(sz-1)/2 << argv[3];
 		for(unsigned int i = 0 ; i < sz ; i++)
 		{
 			for(unsigned int j = i+1 ; j < sz ; j++)

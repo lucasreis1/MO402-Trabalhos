@@ -3,9 +3,11 @@ EXE = main
 C++ = g++
 SRC_DIR = sources
 OBJ_DIR = obj
+TDD_DIR = tratamento_tsp
 
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+TDD = $(TDD_DIR)/main.cpp
 
 CFLAGS = -std=c++11 -Wall -Wextra
 CFLAGS += -g
@@ -21,8 +23,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(C++) $(CFLAGS) -c $< -o $@
 
 tdd:
-	g++ tratamento_tsp/main.cpp $(CFLAGS) -o tratamento_tsp/tratamento_de_dados
+	g++ $(TDD) $(CFLAGS) -o $(TDD_DIR)/$@
 
 clean:
 	rm $(OBJ)
 	rm $(EXE)
+	rm $(TDD_DIR)/tdd

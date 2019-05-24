@@ -16,7 +16,8 @@ private:
 		float chave;
 		bool marca;
 		bool inq;
-		Node(int v,float k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
+		int nl; //remover
+		Node(int v,float k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true),nl(1){}
 	};
 
 	int n;
@@ -47,4 +48,6 @@ public:
 	void decrease_key(int vert,float key);
 
 	bool in_queue(int vert);
+
+	void print_roots();
 };
