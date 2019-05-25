@@ -10,15 +10,27 @@
 
 using namespace std;
 
-void print_path(vector<int> pred, int vert, int source, fstream &out)
+bool print_path(vector<int> pred, int vert, int source, FILE *f)
 {
 	if(vert == source)
-		out << source;
-	else if(pred[vert] != -1)
-	{
-		print_path(pred,pred[vert],source,out);
-		out << fixed << ' ' << vert;
-	}
+    {
+		fprintf(f,"%d",source);
+        return true;
+    }
+    else if(vert != -1)
+    {
+    	if(print_path(pred,pred[vert],source,f))
+        {
+            fprintf(f," %d",vert);
+            return true;
+        }
+        return false;
+    }
+    else
+    {
+        fprintf(f," INF");
+        return false;
+    }
 }
 
 Graph* initialize_graph(string alg, int nver) {
@@ -36,30 +48,30 @@ int main(int argc, char * argv[])
 		return 1;
 	}
 
-	fstream infile,outfile;
+    FILE *in,*out;
 	int nver,narestas,source,va,vb;
-	float peso;
+	double peso;
     vector<double> costs;
     vector<int> pred;
-    vector<vector<float>> d_n;
+    vector<vector<double>> d_n;
     vector<vector<int>> p_n;
 
-	infile.open(argv[3]);
-	if(!infile.is_open())
+    in = fopen(argv[3],"r");
+	if(!in)
 	{
 		cerr << "Problema na abertura do arquivo de entrada!" << endl;
 		return 1;
 	}
 
 	cout << "Lendo grafo..." << endl;
-	infile >> nver >> narestas >> source;
+    fscanf(in,"%d\n%d\n%d\n",&nver,&narestas,&source);
     Graph* G = initialize_graph(string(argv[1]), nver);
 	for(int i = 0 ; i < narestas; i++)
 	{
-		infile >> va >> vb >> peso;
+        fscanf(in,"%d %d %lf\n",&va,&vb,&peso);
 		G->add_edge(va,vb,peso);
 	}
-	infile.close();
+    fclose(in);
     int op = argv[2][0] - '0';
     chrono::system_clock::time_point start,end;
     cout << "Iniciando algoritmo..." << endl;
@@ -98,24 +110,26 @@ int main(int argc, char * argv[])
     chrono::milliseconds elapsed = chrono::duration_cast<chrono::milliseconds>(end-start);
     cout << "Tempo de execução do algoritmo: " << elapsed.count() << " ms" << endl;
 
-	outfile.open(argv[4],fstream::out);
-	outfile.precision(4);
+    out = fopen(argv[4],"w");
 	for(int i = 0 ; i < G->n_vert ; i++)
 	{
         if (string(argv[1]) == "floyd-warshall")
         {
             for(int j = 0 ; j < G->n_vert ; j++)
             {
-                outfile << fixed << d_n[i][j] << ' ';
-                print_path(p_n[i],j,i,outfile);
-                outfile << endl;
+                fprintf(out,"%lf ",d_n[i][j]);
+                print_path(p_n[i],j,i,out);
+                fprintf(out,"\n");
             }
-        } else {
-            outfile << fixed << costs[i] << ' ';
-            print_path(pred,i,source,outfile);
-            outfile << endl;
+        } else 
+        {
+            fprintf(out,"%lf ",costs[i]);
+            print_path(pred,i,source,out);
+            fprintf(out,"\n");
 
         }
 	}
+    delete G;
+    fclose(out);
 	return 0;
 }

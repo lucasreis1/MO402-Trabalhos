@@ -9,10 +9,10 @@ private:
 
     struct Node
     {
-        float val;
+        double val;
         bool is_inqueue;
 
-        Node(float vl=0.0): val(vl),is_inqueue(true){}
+        Node(double vl=0.0): val(vl),is_inqueue(true){}
     };
 
     vector<Node> Q;
@@ -24,9 +24,9 @@ public:
 
     int extract_min();
 
-    void decrease_key(int vert, float key);
+    void decrease_key(int vert, double key);
 
     bool in_queue(int vert);
 
-    float get_value(int vert);
+    double get_value(int vert);
 };

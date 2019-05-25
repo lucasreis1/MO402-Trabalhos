@@ -12,9 +12,9 @@ public:
 	{
 		int va;
 		int vb;
-		float wgt;
+		double wgt;
 
-		Edge(int i=0,int j=0,float w=0.0): va(i), vb(j), wgt(w){}
+		Edge(int i=0,int j=0,double w=0.0): va(i), vb(j), wgt(w){}
 	};
 
 	vector<Edge *> edges;
@@ -34,5 +34,5 @@ public:
 	~Graph_A();
 
 	int add_vert();
-	void add_edge(int va, int vb, float w=0.0);
+	void add_edge(int va, int vb, double w=0.0);
 };

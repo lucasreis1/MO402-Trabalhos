@@ -9,10 +9,11 @@ public:
 
 	virtual int add_vert() = 0;
 
-	virtual void add_edge(int va, int vb, float w) = 0;
+	virtual void add_edge(int va, int vb, double w) = 0;
+	
+	virtual ~Graph() = default;
 	
 protected:
 	Graph(int nver=0);
 
-	virtual ~Graph() = default;
 };

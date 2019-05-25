@@ -1,5 +1,5 @@
 #include "Fibonacci.hpp"
-#include<limits> //max_float
+#include<limits> //max_double
 #include<iostream>
 #include<cmath> //log2
 #include<utility> //swap
@@ -10,7 +10,7 @@ Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(NULL
 	{
 		Node *nd;
 		if(i != src)
-			nd = new Node(i,std::numeric_limits<float>::max());
+			nd = new Node(i,std::numeric_limits<double>::max());
 		else
 			nd = new Node(i);
 		pos_store[i] = nd;
@@ -97,7 +97,7 @@ void Fibonacci::print_roots()
 void Fibonacci::consolidate()
 {
 	int D = log2(tam) + 1;
-	vector<Node *> A(D,NULL);
+	vector<Node *> A(2*D,NULL);
 	Node *next, *ptr;
 	next = min->direita;
 	do
@@ -118,7 +118,7 @@ void Fibonacci::consolidate()
 	}while(ptr != min);
 	min = NULL;
 	n = 0;
-	for(int i = 0 ; i < D; i++)
+	for(int i = 0 ; i < 2*D; i++)
 		if(A[i])
 		{
 			insert_on_roots(A[i]);
@@ -141,7 +141,6 @@ int Fibonacci::extract_min()
 	{
 		Node *ptr = nd->direita;
 		nd->pai = NULL;
-		nd->marca = false;
 		insert_on_roots(nd);
 		nd = ptr;
 	}while(nd != tmp);
@@ -206,7 +205,7 @@ void Fibonacci::cascading_cut(Node *y)
 	}
 }
 
-void Fibonacci::decrease_key(int vert, float key)
+void Fibonacci::decrease_key(int vert, double key)
 {
 	Node *x = pos_store[vert];
 	if(key > x->chave)

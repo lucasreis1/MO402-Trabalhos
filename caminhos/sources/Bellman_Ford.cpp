@@ -1,5 +1,5 @@
 #include "Bellman_Ford.hpp"
-#include<limits> //max_float
+#include<limits> //max_double
 #include<iostream>
 
 using std::vector;
@@ -11,7 +11,7 @@ bool Bellman_Ford(Graph_A &G, int source, vector<int> &pred, vector<double> &d)
 	for(int i = 0 ; i < G.n_vert ; i++)
 	{
 		if(i != source)
-			d[i] = std::numeric_limits<float>::max();
+			d[i] = std::numeric_limits<double>::max();
 	}
 	d[source] = 0.0;
 	pred[source] = source;

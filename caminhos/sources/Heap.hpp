@@ -12,7 +12,7 @@ private:
 	{
 		int pos;
 		int vert;
-		float val;
+		double val;
 	};
 
 	vector<Node *> H;
@@ -37,9 +37,9 @@ public:
 
 	int extract_min();
 
-	void decrease_key(int vert, float key);
+	void decrease_key(int vert, double key);
 
 	bool in_queue(int vert);
 
-	float get_value(int vert);
+	double get_value(int vert);
 };

@@ -1,8 +1,8 @@
 #include "Floyd_Warshall.hpp"
 #include <iostream>
-#include <limits> //max_float
+#include <limits> //max_double
 
-void initialize_sp_matrix(vector<vector<float>> &D, int n_vert)
+void initialize_sp_matrix(vector<vector<double>> &D, int n_vert)
 {
     D.resize(n_vert);
     for (int i = 0; i < n_vert; ++i)
@@ -20,7 +20,7 @@ void initialize_pr_matrix(vector<vector<int>> &P, int n_vert)
     }
 }
 
-void initialize_sp_weights(vector<vector<float>> &D, Graph_M &G)
+void initialize_sp_weights(vector<vector<double>> &D, Graph_M &G)
 {
     int n_vert = G.n_vert;
     for(int i = 0 ; i < n_vert ; i++)
@@ -32,13 +32,13 @@ void initialize_sp_weights(vector<vector<float>> &D, Graph_M &G)
     }
 }
 
-void print_sp_matrix(vector<vector<float>> &D, int n_vert)
+void print_sp_matrix(vector<vector<double>> &D, int n_vert)
 {
     for(int i = 0 ; i < n_vert ; i++)
     {
         for(int j = 0 ; j < n_vert ; j++)
         {
-            if (D[i][j] == std::numeric_limits<float>::max())
+            if (D[i][j] == std::numeric_limits<double>::max())
                 std::cout << "INF";
             else
                 std::cout << D[i][j];
@@ -64,11 +64,11 @@ void print_pr_matrix(vector<vector<int>> &D, int n_vert)
     }
 }
 
-vector<vector<int>> Floyd_Warshall(Graph_M &G, int op, vector<vector<float>> &d)
+vector<vector<int>> Floyd_Warshall(Graph_M &G, int op, vector<vector<double>> &d)
 {
     int n_vert = G.n_vert;
 
-    vector<vector<float>> d_p;
+    vector<vector<double>> d_p;
     vector<vector<int>> p_p;
     vector<vector<int>> p_n;
     initialize_sp_matrix(d, n_vert);
@@ -79,7 +79,7 @@ vector<vector<int>> Floyd_Warshall(Graph_M &G, int op, vector<vector<float>> &d)
     {
         for (int j = 0 ; j < n_vert ; ++j)
         {
-            if (i != j && d[i][j] < std::numeric_limits<float>::max())
+            if (i != j && d[i][j] < std::numeric_limits<double>::max())
                 p_n[i][j] = i;
             else
                 p_n[i][j] = std::numeric_limits<int>::max();

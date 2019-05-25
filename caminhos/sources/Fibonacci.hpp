@@ -13,11 +13,11 @@ private:
 		Node *esquerda,*direita;
 		int grau;
 		int vert;
-		float chave;
+		double chave;
 		bool marca;
 		bool inq;
 		int nl; //remover
-		Node(int v,float k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true),nl(1){}
+		Node(int v,double k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true),nl(1){}
 	};
 
 	int n;
@@ -45,7 +45,7 @@ public:
 
 	void cascading_cut(Node *y);
 
-	void decrease_key(int vert,float key);
+	void decrease_key(int vert,double key);
 
 	bool in_queue(int vert);
 

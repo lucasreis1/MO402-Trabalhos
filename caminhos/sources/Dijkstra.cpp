@@ -1,5 +1,5 @@
 #include "Dijkstra.hpp"
-#include<limits> //max_float
+#include<limits> //max_double
 #include<iostream>
 
 using std::vector;
@@ -37,7 +37,7 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
     for(int i = 0 ; i < G.n_vert ; i++)
     {
         if(i != source)
-            d[i] = std::numeric_limits<float>::max();
+            d[i] = std::numeric_limits<double>::max();
     }
     d[source] = 0.0;
     pred[source] = source;
@@ -51,8 +51,8 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
         {
             int va = G.vertices[u].edg[i]->va;
             int vb = G.vertices[u].edg[i]->vb;
-            float w = G.vertices[u].edg[i]->wgt;
-            if(Q->in_queue(vb) && d[vb] > d[va] + w)
+            double w = G.vertices[u].edg[i]->wgt;
+            if(d[vb] > d[va] + w)
             {
                 pred[vb] = va;
                 d[vb] = d[va] + w;

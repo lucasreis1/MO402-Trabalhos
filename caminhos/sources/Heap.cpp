@@ -1,6 +1,6 @@
 #include "Heap.hpp"
 #include<iostream>
-#include<limits> //max_float
+#include<limits> //max_double
 #include<utility> //swap
 
 Heap::Heap(int nel,int src): Queue(nel), H(tam), pos_store(tam)
@@ -17,7 +17,7 @@ Heap::Heap(int nel,int src): Queue(nel), H(tam), pos_store(tam)
 			H[i] = new Node();
 			H[i]->pos = i;
 			H[i]->vert = i;
-			H[i]->val = std::numeric_limits<float>::max();
+			H[i]->val = std::numeric_limits<double>::max();
 			pos_store[i] = H[i];
 		}
 	}
@@ -90,7 +90,7 @@ int Heap::extract_min()
 	return min;
 }
 
-void Heap::decrease_key(int vert, float key)
+void Heap::decrease_key(int vert, double key)
 	{
 		int pos = pos_store[vert]->pos;
 		if(H[pos]->val < key)
@@ -114,7 +114,7 @@ bool Heap::in_queue(int vert)
 	return pos_store[vert]->pos < tam;
 }
 
-float Heap::get_value(int vert)
+double Heap::get_value(int vert)
 {
 	return pos_store[vert]->val;
 }

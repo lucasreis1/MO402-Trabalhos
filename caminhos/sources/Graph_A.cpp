@@ -20,7 +20,7 @@ int Graph_A::add_vert()
 	return n_vert-1;
 }
 
-void Graph_A::add_edge(int va, int vb, float w)
+void Graph_A::add_edge(int va, int vb, double w)
 {
 	if(va < n_vert && vb < n_vert)
 	{

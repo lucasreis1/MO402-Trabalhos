@@ -7,7 +7,7 @@ NaivePriorityQueue::NaivePriorityQueue(int nel, int src): Queue(nel), Q(tam)
     for(int i = 0 ; i < tam ; i++)
     {
         if(i != src)
-            Q[i].val = std::numeric_limits<float>::max();
+            Q[i].val = std::numeric_limits<double>::max();
     }
 }
 
@@ -17,7 +17,7 @@ int NaivePriorityQueue::extract_min() {
         std::cerr << "Erro no tamanho do heap" << std::endl;
         exit(1);
     }
-    float min = std::numeric_limits<float>::max();
+    double min = std::numeric_limits<double>::max();
     int min_index = 0;
     for (unsigned int i = 0 ; i < Q.size() ; i++)
     {
@@ -31,7 +31,7 @@ int NaivePriorityQueue::extract_min() {
     return min_index;
 }
 
-void NaivePriorityQueue::decrease_key(int vert, float key) {
+void NaivePriorityQueue::decrease_key(int vert, double key) {
     if(Q[vert].val < key || Q[vert].is_inqueue == false)
     {
         std::cerr << "Erro na redução de key" << std::endl; 
@@ -44,7 +44,7 @@ bool NaivePriorityQueue::in_queue(int vert) {
     return Q[vert].is_inqueue;
 }
 
-float NaivePriorityQueue::get_value(int vert) {
+double NaivePriorityQueue::get_value(int vert) {
     if(Q[vert].is_inqueue == false)
     {
         std::cerr << "Erro na aquisiçao de valor na fila" << std::endl;

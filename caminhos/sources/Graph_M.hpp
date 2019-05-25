@@ -2,7 +2,7 @@
 
 #include "Graph.hpp"
 #include<vector>
-#include <limits> //max_float
+#include <limits> //max_double
 
 using std::vector;
 
@@ -12,8 +12,8 @@ public:
 	struct Edge
 	{
 		bool exist;
-		float w;
-		Edge(): exist(false),w(std::numeric_limits<float>::max()){}
+		double w;
+		Edge(): exist(false),w(std::numeric_limits<double>::max()){}
 	};
 
 	vector<vector<Edge>> edges;
@@ -22,7 +22,7 @@ public:
 
 	int add_vert();
 
-	void add_edge(int va,int vb, float w);
+	void add_edge(int va,int vb, double w);
 
 	void print_edges();
 };
