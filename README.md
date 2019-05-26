@@ -22,4 +22,4 @@
     - ~~Floyd-Warshall    **David**~~
     - ~~Slow All-Pairs Shortest Paths    **David**~~
     - ~~Faster All-Pairs Shortest Paths    **David**~~
-- Johnson   **Victória**
+- ~~Johnson   **Victória**~~
