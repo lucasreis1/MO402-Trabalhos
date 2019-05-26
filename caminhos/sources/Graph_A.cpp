@@ -1,5 +1,6 @@
 #include "Graph_A.hpp"
 #include<iostream>
+#include <cstddef>
 
 Graph_A::Graph_A(int nver): Graph(nver), vertices(n_vert)
 {
@@ -34,5 +35,17 @@ void Graph_A::add_edge(int va, int vb, double w)
 	{
 		std::cerr << "Vértice inexistente" << std::endl;
 		exit(1);
+	}
+}
+
+void Graph_A::print()
+{
+	for(int i = 0 ; i < n_vert ; i++)
+	{
+		for(int j = 0 ; j < vertices[i].n_edges ; j++)
+		{
+			std::cout << vertices[i].edg[j]->va << " " << vertices[i].edg[j]->vb << " " << vertices[i].edg[j]->wgt;
+			std::cout << std::endl;
+		}
 	}
 }

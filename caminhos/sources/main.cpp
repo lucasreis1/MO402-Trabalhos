@@ -3,6 +3,7 @@
 #include "Bellman_Ford.hpp"
 #include "Dijkstra.hpp"
 #include "Floyd_Warshall.hpp"
+#include "Johnson.hpp"
 #include<vector>
 #include<chrono> //medir tempo
 #include<iostream>
@@ -75,6 +76,10 @@ int main(int argc, char * argv[])
     int op = argv[2][0] - '0';
     chrono::system_clock::time_point start,end;
     cout << "Iniciando algoritmo..." << endl;
+
+    const size_t N = G->n_vert;
+    double** D;
+
     if(string(argv[1]) == "bellman-ford")
     {
         start = chrono::system_clock::now();
@@ -98,8 +103,15 @@ int main(int argc, char * argv[])
     }
     else if(string(argv[1]) == "johnson")
     {
+        D = new double*[N];
+
         start = chrono::system_clock::now();
-        // johnson
+
+        for(size_t i = 0; i < N; ++i)
+            D[i] = new double[N];
+
+        p_n = Johnson((Graph_A &)*G, pred, costs, D, op, G->n_vert);
+        
         end = chrono::system_clock::now();
     }
     else
@@ -111,7 +123,13 @@ int main(int argc, char * argv[])
     cout << "Tempo de execução do algoritmo: " << elapsed.count() << " ms" << endl;
 
     out = fopen(argv[4],"w");
-	for(int i = 0 ; i < G->n_vert ; i++)
+    if(!out)
+    {
+        cerr << "Problema na abertura do arquivo de saída" << endl;
+        return 1;
+    }
+
+	for(int i = 0 ; i < G->n_vert; i++)
 	{
         if (string(argv[1]) == "floyd-warshall")
         {
@@ -121,7 +139,17 @@ int main(int argc, char * argv[])
                 print_path(p_n[i],j,i,out);
                 fprintf(out,"\n");
             }
-        } else 
+        } 
+        else if (string(argv[1]) == "johnson")
+        {
+            for(int j = 0 ; j < G->n_vert ; j++)
+            {
+                fprintf(out, "%lf ",D[i][j]);
+                print_path(p_n[i],j,i,out);
+                fprintf(out, "\n");
+            }
+        }
+        else
         {
             fprintf(out,"%lf ",costs[i]);
             print_path(pred,i,source,out);
@@ -129,7 +157,9 @@ int main(int argc, char * argv[])
 
         }
 	}
-    delete G;
+
+    if (string(argv[1]) != "johnson")
+        delete G;
     fclose(out);
 	return 0;
 }

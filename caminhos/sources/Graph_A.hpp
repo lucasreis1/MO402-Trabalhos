@@ -35,4 +35,5 @@ public:
 
 	int add_vert();
 	void add_edge(int va, int vb, double w=0.0);
+	void print();
 };
