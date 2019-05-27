@@ -8,6 +8,7 @@ Graph_M::Graph_M(int nver): Graph(nver)
 	{
 		edges[i].resize(n_vert);
 		edges[i][i].exist = true;
+        edges[i][i].w = 0.0;
 	}
 }
 
