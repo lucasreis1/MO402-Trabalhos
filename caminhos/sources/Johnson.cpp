@@ -12,7 +12,7 @@ Graph_A g_linha(Graph_A &G)
 
 	s = G_linha.add_vert();
 
-	for(int i; i < G.n_vert; i++)
+	for(int i = 0; i < G.n_vert; i++)
 		G_linha.add_edge(s, i, 0.0);
 
 	return G_linha;
@@ -55,7 +55,7 @@ vector< vector<int> > Johnson(Graph_A &G, vector<int> &pred, vector<double> &cos
 		{
 			p_n[(int)i] = Dijkstra(G, op, (int)i, w_);
 			for(size_t j = 0 ; j < V; j++){
-				D[i][j] = w_[j] + h[i] - h[j];
+				D[i][j] = w_[j];// + h[i] - h[j];
 			}
 		}
 	}
