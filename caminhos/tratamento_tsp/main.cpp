@@ -1,8 +1,10 @@
 #include<iostream>
-#include<fstream>
 #include<cmath>
 #include<vector>
 #include<string>
+#include<random>
+#include<time.h>
+
 
 using namespace std;
 
@@ -12,6 +14,14 @@ struct Vertex
 	float x;
 	float y;
 	Vertex(int p,float a,float b): pos(p),x(a),y(b){}
+};
+
+struct Edge
+{
+	int va;
+	int vb;
+	double wgt;
+	Edge(int va=0, int vb=0, double w=0.0): va(va),vb(vb),wgt(w){}
 };
 
 float euclid_dist(float x1, float y1,float x2,float y2)
@@ -24,9 +34,12 @@ int main(int argc, char* argv[])
 {
 	FILE *in,*out;
 	vector<Vertex> vetor;
+	vector<vector<Edge>> arestas;
+	unsigned seed = time(NULL);
+	minstd_rand0 rnd(seed);
 	if(argc < 3)
 	{
-		cout << "Uso: ./tratamento_de_dados <f/s> <entrada.tsp> <saida.txt> <source> <num grau>";
+		cout << "Uso: ./tratamento_de_dados <f/s> <entrada.tsp> <saida.txt> <source> <chance ger>";
 		return 1;
 	}
 	in = fopen(argv[2],"r");
@@ -81,17 +94,27 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		unsigned int n_ar = stoi(argv[4]);
-		fprintf(out,"%d\n%d\n%s",sz,sz*n_ar,argv[3]);
+		arestas.resize(sz);
+		float chance = stof(argv[4])/100.0;
+		unsigned int nar = 0;
+		//fprintf(out,"%d\n%d\n%s",sz,sz*n_ar,argv[3]);
 		for(unsigned int i = 0 ; i < sz ; i++)
 		{
-			unsigned int j = (i+1)%sz;
-			for(unsigned int k = 0 ; k < n_ar ; k++)
+			for(unsigned int j = 0 ;j < sz ; j++)
 			{
-				fprintf(out,"\n%d %d %f",i,j,euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y));
-				j = (j+1)%sz;
+				int r = rnd();
+				if(i != j && chance >= (double)r/rnd.max())
+				{
+					arestas[i].push_back(Edge(i,j,euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y)));
+					nar++;
+				}
 			}
-
+		}
+		fprintf(out,"%d\n%d\n%s",sz,nar,argv[3]);
+		for(unsigned int i = 0 ; i < sz ; i++)
+		{
+			for(unsigned int j = 0 ;j < arestas[i].size() ; j++)
+				fprintf(out,"\n%d %d %f",arestas[i][j].va,arestas[i][j].vb,arestas[i][j].wgt);
 		}
 	}
 	//out.close();

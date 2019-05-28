@@ -12,12 +12,12 @@
 - 
 # Trabalho 2
 - ~~Estrutura de matriz de adjacências - **Lucas**~~
-- Organizar main (medir tempos, leitura e escrita de arquivos, etc...) - **Lucas**
+- ~~Organizar main (medir tempos, leitura e escrita de arquivos, etc...) - **Lucas**~~
 - ~~Bellman Ford - **Lucas**~~
-- Dijkstra
+- ~~Dijkstra~~
     - ~~Naive     **David**~~
     - ~~Binary Heap      **David**~~
-    - Fibonacci Heap **Lucas**
+    - ~~Fibonacci Heap **Lucas**~~
 - ~~Floyd-Warshall    **David**~~
     - ~~Floyd-Warshall    **David**~~
     - ~~Slow All-Pairs Shortest Paths    **David**~~

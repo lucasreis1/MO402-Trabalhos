@@ -22,6 +22,7 @@ private:
 	int n;
 	vector<Node *> roots;
 	vector<Node *> pos_store;
+	vector<Node *> A;
 	Node *min;
 public:
 	Fibonacci(int nel,int src);

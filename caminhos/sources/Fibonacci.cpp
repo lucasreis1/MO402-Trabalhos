@@ -4,8 +4,14 @@
 #include<cmath> //log2
 #include<utility> //swap
 
+#ifndef GOLDEN_LOG
+#define GOLDEN_LOG 0.20898764
+#endif
+
 Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(NULL)
 {
+	int t = log(tam)/0.20898764 + 1;
+	A.resize(t);
 	for(int i = 0 ; i < tam ; i++)
 	{
 		Node *nd;
@@ -78,8 +84,9 @@ void Fibonacci::link(Node *y, Node *x)
 
 void Fibonacci::consolidate()
 {
-	int D = log2(tam) + 1;
-	vector<Node *> A(2*D,NULL);
+	int D = log(tam)/GOLDEN_LOG + 1;
+	for(int i = 0 ; i < D ; i++)
+		A[i] = NULL;
 	Node *next, *ptr;
 	next = min->direita;
 	do
@@ -100,7 +107,7 @@ void Fibonacci::consolidate()
 	}while(ptr != min);
 	min = NULL;
 	n = 0;
-	for(int i = 0 ; i < 2*D; i++)
+	for(int i = 0 ; i < D; i++)
 		if(A[i])
 		{
 			insert_on_roots(A[i]);
