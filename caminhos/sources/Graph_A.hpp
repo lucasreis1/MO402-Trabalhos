@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Graph.hpp"
 #include<vector>
 
@@ -32,7 +31,7 @@ public:
 	Graph_A(int nv);
 
 	Graph_A(const Graph_A &G2);
-	
+
 	~Graph_A();
 
 	int add_vert();

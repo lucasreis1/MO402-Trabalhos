@@ -1,6 +1,5 @@
 #include "Graph_A.hpp"
 #include<iostream>
-#include <cstddef>
 
 Graph_A::Graph_A(int nver): Graph(nver), vertices(n_vert){}
 
