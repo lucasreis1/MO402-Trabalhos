@@ -71,27 +71,9 @@ void Fibonacci::link(Node *y, Node *x)
 		x->filho = y;
 		y->direita = y->esquerda = y;
 	}
-	/*					DEBUG ONLY					*/
-	x->nl += y->nl;
-	/*					DEBUG ONLY					*/
 	y->pai = x;
 	x->grau++;
 	y->marca = false;
-}
-
-void Fibonacci::print_roots()
-{
-	int cnt = 0;
-	int sum = 0;
-	Node *ptr = min;
-	do
-	{
-		std::cout << "vert=" << ptr->vert << "//grau=" << ptr->grau << "//num_el=" << ptr->nl << "//chave=" << ptr->chave << std::endl;
-		sum += ptr->nl;
-		ptr = ptr->direita;
-		cnt++;
-	}while(ptr != min);
-	std::cout << sum << std::endl;
 }
 
 void Fibonacci::consolidate()
@@ -176,15 +158,6 @@ void Fibonacci::cut(Node *x, Node *y) // x = filho, y = pai
 		x->esquerda->direita = x->direita;
 	}
 	y->grau--;
-	Node *ptr = y->pai;
-	/*					DEBUG ONLY					*/
-	y->nl -= x->nl;
-	while(ptr)
-	{
-		ptr->nl -= x->nl;
-		ptr = ptr->pai;
-	}
-	/*					DEBUG ONLY					*/
 	insert_on_roots(x);
 	x->pai = NULL;
 	x->marca = false;

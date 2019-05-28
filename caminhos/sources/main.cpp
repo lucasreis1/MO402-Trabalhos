@@ -77,9 +77,6 @@ int main(int argc, char * argv[])
     chrono::system_clock::time_point start,end;
     cout << "Iniciando algoritmo..." << endl;
 
-    const size_t N = G->n_vert;
-    double** D;
-
     if(string(argv[1]) == "bellman-ford")
     {
         start = chrono::system_clock::now();
@@ -103,15 +100,9 @@ int main(int argc, char * argv[])
     }
     else if(string(argv[1]) == "johnson")
     {
-        D = new double*[N];
 
         start = chrono::system_clock::now();
-
-        for(size_t i = 0; i < N; ++i)
-            D[i] = new double[N];
-
-        p_n = Johnson((Graph_A &)*G, pred, costs, D, op, G->n_vert);
-        
+        p_n = Johnson((Graph_A &)*G, d_n, op);        
         end = chrono::system_clock::now();
     }
     else
@@ -144,7 +135,7 @@ int main(int argc, char * argv[])
         {
             for(int j = 0 ; j < G->n_vert ; j++)
             {
-                fprintf(out, "%lf ",D[i][j]);
+                fprintf(out, "%lf ",d_n[i][j]);
                 print_path(p_n[i],j,i,out);
                 fprintf(out, "\n");
             }
@@ -157,9 +148,7 @@ int main(int argc, char * argv[])
 
         }
 	}
-
-    if (string(argv[1]) != "johnson")
-        delete G;
+    delete G;
     fclose(out);
 	return 0;
 }

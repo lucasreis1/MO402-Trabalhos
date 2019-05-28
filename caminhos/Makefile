@@ -10,7 +10,7 @@ OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 TDD = $(TDD_DIR)/main.cpp
 
 CFLAGS = -std=c++11 -Wall -Wextra
-CFLAGS += -g
+CFLAGS += -O3
 
 .PHONY: all tdd clean
 

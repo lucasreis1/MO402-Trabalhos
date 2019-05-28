@@ -32,38 +32,6 @@ void initialize_sp_weights(vector<vector<double>> &D, Graph_M &G)
     }
 }
 
-void print_sp_matrix(vector<vector<double>> &D, int n_vert)
-{
-    for(int i = 0 ; i < n_vert ; i++)
-    {
-        for(int j = 0 ; j < n_vert ; j++)
-        {
-            if (D[i][j] == std::numeric_limits<double>::max())
-                std::cout << "INF";
-            else
-                std::cout << D[i][j];
-            std::cout << '\t';
-        }
-        std::cout << std::endl;
-    }
-}
-
-void print_pr_matrix(vector<vector<int>> &D, int n_vert)
-{
-    for(int i = 0 ; i < n_vert ; i++)
-    {
-        for(int j = 0 ; j < n_vert ; j++)
-        {
-            if (D[i][j] == std::numeric_limits<int>::max())
-                std::cout << "NIL";
-            else
-                std::cout << D[i][j];
-            std::cout << '\t';
-        }
-        std::cout << std::endl;
-    }
-}
-
 vector<vector<int>> Floyd_Warshall(Graph_M &G, int op, vector<vector<double>> &d)
 {
     int n_vert = G.n_vert;

@@ -1,6 +1,5 @@
 #include "Queue.hpp"
 #include<vector>
-#include <cstddef>
 
 using std::vector;
 
@@ -17,8 +16,7 @@ private:
 		double chave;
 		bool marca;
 		bool inq;
-		int nl; //remover
-		Node(int v,double k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true),nl(1){}
+		Node(int v,double k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
 	};
 
 	int n;

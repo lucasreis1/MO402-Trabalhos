@@ -2,10 +2,19 @@
 #include<iostream>
 #include <cstddef>
 
-Graph_A::Graph_A(int nver): Graph(nver), vertices(n_vert)
+Graph_A::Graph_A(int nver): Graph(nver), vertices(n_vert){}
+
+Graph_A::Graph_A(const Graph_A &G2): Graph(G2.n_vert),vertices(n_vert)
 {
-	for(int i = 0 ; i < n_vert ; i++)
-		vertices[i].number = i;
+	for(int i = 0 ; i < G2.n_edges ; i++)
+	{
+		int va,vb;
+		double w;
+		va = G2.edges[i]->va;
+		vb = G2.edges[i]->vb;
+		w = G2.edges[i]->wgt;
+		add_edge(va,vb,w);
+	}
 }
 
 Graph_A::~Graph_A()
@@ -17,7 +26,7 @@ Graph_A::~Graph_A()
 int Graph_A::add_vert()
 {
 	n_vert++;
-	vertices.resize(n_vert,Vertex(n_vert-1));
+	vertices.resize(n_vert,Vertex());
 	return n_vert-1;
 }
 
@@ -35,17 +44,5 @@ void Graph_A::add_edge(int va, int vb, double w)
 	{
 		std::cerr << "Vértice inexistente" << std::endl;
 		exit(1);
-	}
-}
-
-void Graph_A::print()
-{
-	for(int i = 0 ; i < n_vert ; i++)
-	{
-		for(int j = 0 ; j < vertices[i].n_edges ; j++)
-		{
-			std::cout << vertices[i].edg[j]->va << " " << vertices[i].edg[j]->vb << " " << vertices[i].edg[j]->wgt;
-			std::cout << std::endl;
-		}
 	}
 }

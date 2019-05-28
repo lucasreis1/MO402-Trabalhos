@@ -25,8 +25,8 @@ void Graph_M::add_edge(int va,int vb,double w)
 {
 	if(va < n_vert && vb < n_vert)
 	{
-	edges[va][vb].exist = true;
-	edges[va][vb].w = w;
+		edges[va][vb].exist = true;
+		edges[va][vb].w = w;
 	}
 	else
 	{
