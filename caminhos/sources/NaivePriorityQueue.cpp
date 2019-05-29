@@ -17,7 +17,7 @@ int NaivePriorityQueue::extract_min() {
         std::cerr << "Erro no tamanho do heap" << std::endl;
         exit(1);
     }
-    double min = std::numeric_limits<double>::max();
+    double min = std::numeric_limits<double>::infinity();
     int min_index = 0;
     for (unsigned int i = 0 ; i < Q.size() ; i++)
     {

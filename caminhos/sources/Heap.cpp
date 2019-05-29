@@ -17,7 +17,7 @@ Heap::Heap(int nel,int src): Queue(nel), H(tam), pos_store(tam)
 			H[i] = new Node();
 			H[i]->pos = i;
 			H[i]->vert = i;
-			H[i]->val = std::numeric_limits<double>::max();
+			H[i]->val = std::numeric_limits<double>::infinity();
 			pos_store[i] = H[i];
 		}
 	}

@@ -13,7 +13,7 @@ public:
 	{
 		bool exist;
 		double w;
-		Edge(): exist(false),w(std::numeric_limits<double>::max()){}
+		Edge(): exist(false),w(std::numeric_limits<double>::infinity()){}
 	};
 
 	vector<vector<Edge>> edges;

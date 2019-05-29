@@ -47,10 +47,10 @@ vector<vector<int>> Floyd_Warshall(Graph_M &G, int op, vector<vector<double>> &d
     {
         for (int j = 0 ; j < n_vert ; ++j)
         {
-            if (i != j && d[i][j] < std::numeric_limits<double>::max())
+            if (i != j && d[i][j] < std::numeric_limits<double>::infinity())
                 p_n[i][j] = i;
             else
-                p_n[i][j] = std::numeric_limits<int>::max();
+                p_n[i][j] = std::numeric_limits<int>::infinity();
         }
     }
 

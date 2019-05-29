@@ -37,7 +37,7 @@ vector<int> Dijkstra(Graph_A &G, int op, int source, vector<double> &d)
     for(int i = 0 ; i < G.n_vert ; i++)
     {
         if(i != source)
-            d[i] = std::numeric_limits<double>::max();
+            d[i] = std::numeric_limits<double>::infinity();
     }
     d[source] = 0.0;
     pred[source] = source;

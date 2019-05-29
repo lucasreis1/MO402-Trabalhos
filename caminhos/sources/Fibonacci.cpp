@@ -16,7 +16,7 @@ Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(NULL
 	{
 		Node *nd;
 		if(i != src)
-			nd = new Node(i,std::numeric_limits<double>::max());
+			nd = new Node(i,std::numeric_limits<double>::infinity());
 		else
 			nd = new Node(i);
 		pos_store[i] = nd;
