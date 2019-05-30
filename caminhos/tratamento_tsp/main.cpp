@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	minstd_rand0 rnd(seed);
 	if(argc < 3)
 	{
-		cout << "Uso: ./tratamento_de_dados <f/s> <entrada.tsp> <saida.txt> <source> <chance ger>";
+		cout << "Uso: ./tratamento_de_dados <f/s> <entrada.tsp> <source> <\% criacao aresta>";
 		return 1;
 	}
 	in = fopen(argv[2],"r");
@@ -97,13 +97,13 @@ int main(int argc, char* argv[])
 		arestas.resize(sz);
 		float chance = stof(argv[4])/100.0;
 		unsigned int nar = 0;
-		//fprintf(out,"%d\n%d\n%s",sz,sz*n_ar,argv[3]);
 		for(unsigned int i = 0 ; i < sz ; i++)
 		{
+			if(i%10000 == 0)
+				std::cout << "Imprimindo vizinhos do vértice " << i << "...\n";
 			for(unsigned int j = 0 ;j < sz ; j++)
 			{
-				int r = rnd();
-				if(i != j && chance >= (double)r/rnd.max())
+				if(i != j && chance >= (double)rnd()/rnd.max())
 				{
 					arestas[i].push_back(Edge(i,j,euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y)));
 					nar++;

@@ -5,7 +5,7 @@
 #include<utility> //swap
 
 #ifndef GOLDEN_LOG
-#define GOLDEN_LOG 0.20898764
+#define GOLDEN_LOG 0.69424191363
 #endif
 
 Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(NULL)
@@ -84,7 +84,7 @@ void Fibonacci::link(Node *y, Node *x)
 
 void Fibonacci::consolidate()
 {
-	int D = log(tam)/GOLDEN_LOG + 1;
+	int D = log2(tam)/GOLDEN_LOG + 1;
 	for(int i = 0 ; i < D ; i++)
 		A[i] = NULL;
 	Node *next, *ptr;
