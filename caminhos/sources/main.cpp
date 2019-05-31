@@ -62,13 +62,17 @@ int main(int argc, char * argv[])
 	}
 
 	cout << "Lendo grafo..." << endl;
-    fscanf(in,"%d\n%d\n%d\n",&nver,&narestas,&source);
+    int check = fscanf(in,"%d\n%d\n%d\n",&nver,&narestas,&source);
+    if(check == 0)
+    {
+        cerr << "Problema na leitura do arquivo!" << endl;
+        return 1;
+    }
     Graph* G = initialize_graph(string(argv[1]), nver);
-	for(int i = 0 ; i < narestas; i++)
-	{
-        fscanf(in,"%d %d %lf\n",&va,&vb,&peso);
+	while(fscanf(in,"%d %d %lf\n",&va,&vb,&peso) != EOF)
+    {
 		G->add_edge(va,vb,peso);
-	}
+    }
     fclose(in);
     int op = argv[2][0] - '0';
     chrono::system_clock::time_point start,end;

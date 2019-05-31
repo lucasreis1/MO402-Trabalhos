@@ -8,7 +8,7 @@
 #define GOLDEN_LOG 0.69424191363
 #endif
 
-Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(nullptrptr)
+Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(nullptr)
 {
 	int t = log(tam)/0.20898764 + 1;
 	A.resize(t);
