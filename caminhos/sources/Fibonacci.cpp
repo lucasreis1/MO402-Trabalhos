@@ -8,7 +8,7 @@
 #define GOLDEN_LOG 0.69424191363
 #endif
 
-Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(nullptr)
+Fibonacci::Fibonacci(int nel, int src): Queue(nel),n(0), pos_store(tam),min(nullptrptr)
 {
 	int t = log(tam)/0.20898764 + 1;
 	A.resize(t);
@@ -86,7 +86,7 @@ void Fibonacci::consolidate()
 {
 	int D = log2(tam)/GOLDEN_LOG + 1;
 	for(int i = 0 ; i < D ; i++)
-		A[i] = NULL;
+		A[i] = nullptr;
 	Node *next, *ptr;
 	next = min->direita;
 	do
@@ -100,12 +100,12 @@ void Fibonacci::consolidate()
 			if(x->chave > y->chave)
 				std::swap(x,y);
 			link(y,x);
-			A[d] = NULL;
+			A[d] = nullptr;
 			d++;
 		}
 		A[d] = x;
 	}while(ptr != min);
-	min = NULL;
+	min = nullptr;
 	n = 0;
 	for(int i = 0 ; i < D; i++)
 		if(A[i])
@@ -129,13 +129,13 @@ int Fibonacci::extract_min()
 	if(nd) do
 	{
 		Node *ptr = nd->direita;
-		nd->pai = NULL;
+		nd->pai = nullptr;
 		insert_on_roots(nd);
 		nd = ptr;
 	}while(nd != tmp);
 	remove_from_roots(z);
 	if(z == z->direita)
-		min = NULL;
+		min = nullptr;
 	else
 	{
 		min = z->direita;
@@ -151,7 +151,7 @@ void Fibonacci::cut(Node *x, Node *y) // x = filho, y = pai
 	if(y->filho == x)
 	{
 		if(x->direita == x)
-			y->filho = NULL;
+			y->filho = nullptr;
 		else
 		{
 			y->filho = x->esquerda;
@@ -166,7 +166,7 @@ void Fibonacci::cut(Node *x, Node *y) // x = filho, y = pai
 	}
 	y->grau--;
 	insert_on_roots(x);
-	x->pai = NULL;
+	x->pai = nullptr;
 	x->marca = false;
 }
 
