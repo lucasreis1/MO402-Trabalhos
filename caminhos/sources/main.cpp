@@ -28,10 +28,7 @@ bool print_path(vector<int> pred, int vert, int source, FILE *f)
         return false;
     }
     else
-    {
-        fprintf(f," INF");
         return false;
-    }
 }
 
 Graph* initialize_graph(string alg, int nver) {
@@ -122,22 +119,13 @@ int main(int argc, char * argv[])
 
 	for(int i = 0 ; i < G->n_vert; i++)
 	{
-        if (string(argv[1]) == "floyd-warshall")
+        if (string(argv[1]) == "floyd-warshall" || string(argv[1]) == "johnson")
         {
             for(int j = 0 ; j < G->n_vert ; j++)
             {
                 fprintf(out,"%lf ",d_n[i][j]);
                 print_path(p_n[i],j,i,out);
                 fprintf(out,"\n");
-            }
-        } 
-        else if (string(argv[1]) == "johnson")
-        {
-            for(int j = 0 ; j < G->n_vert ; j++)
-            {
-                fprintf(out, "%lf ",d_n[i][j]);
-                print_path(p_n[i],j,i,out);
-                fprintf(out, "\n");
             }
         }
         else

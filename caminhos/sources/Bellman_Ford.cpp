@@ -11,7 +11,10 @@ bool Bellman_Ford(Graph_A &G, int source, vector<int> &pred, vector<double> &d)
 	for(int i = 0 ; i < G.n_vert ; i++)
 	{
 		if(i != source)
-			d[i] = std::numeric_limits<double>::max();
+		{
+			d[i] = std::numeric_limits<double>::infinity();
+			pred[i] = -1;
+		}
 	}
 	d[source] = 0.0;
 	pred[source] = source;
