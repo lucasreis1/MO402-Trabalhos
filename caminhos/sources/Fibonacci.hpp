@@ -16,7 +16,7 @@ private:
 		double chave;
 		bool marca;
 		bool inq;
-		Node(int v,double k=0.0):pai(NULL),filho(NULL),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
+		Node(int v,double k=0.0):pai(nullptr),filho(nullptr),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
 	};
 
 	int n;
