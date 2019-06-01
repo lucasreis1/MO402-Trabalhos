@@ -1,5 +1,7 @@
 #include "Dinitz.hpp"
 #include "Graph.hpp"
+#include "Edmonds_Karp.hpp"
+#include "Ford_Fulkerson.hpp"
 #include<vector>
 #include<chrono> //medir tempo
 #include<iostream>
@@ -40,13 +42,13 @@ int main(int argc, char * argv[])
     if(string(argv[1]) == "ford-fulkerson")
     {
         start = chrono::system_clock::now();
-		//Ford-Fulkerson
+		f = ford_fulkerson(G,s,t);
         end = chrono::system_clock::now();
     }
     else if(string(argv[1]) == "edmonds-karp")
     {
         start = chrono::system_clock::now();
-        //Edmonds-Karp
+        f = edmonds_karp(G,s,t);
         end = chrono::system_clock::now();
     }
     else if(string(argv[1]) == "dinitz")
@@ -70,17 +72,11 @@ int main(int argc, char * argv[])
         return 1;
     }
 
-	for(int i = 0 ; i < G.n_vert; i++)
-	{
-        for (unsigned int j = 0; j < G.vertices[i].edg.size(); ++j)
-        {
-            if (!G.vertices[i].edg[j]->back)
-            {
-                int v = G.vertices[i].edg[j]->vb;
-                fprintf(out, "%d %d %d\n", i, v, G.vertices[i].edg[j]->f);
-            }
-        }
-	}
+	for(vector<Edge *>::iterator it = G.edges.begin() ; it < G.edges.end() ; it += 2)
+    {
+        Edge *e = *it;
+        fprintf(out,"%d %d %d\n",e->va,e->vb,e->f);
+    }
 
 	std::cout << "fluxo máximo: " << f << std::endl;
 

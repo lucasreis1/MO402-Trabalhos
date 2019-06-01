@@ -1,6 +1,8 @@
 #include "Graph.hpp"
 #include<iostream>
 
+typedef Graph::Edge Edge;
+typedef Graph::Vertex Vertex;
 
 Graph::Graph(int nver): n_vert(nver), n_edges(0), vertices(n_vert)
 {
@@ -70,11 +72,11 @@ void Graph::print_resgraph()
         init = 0;
         for(int j = 0 ; j < vertices[i].n_edges ; j++)
         {
-            if (vertices[i].edg[j]->fres != 0) {
+            if (vertices[i].edg[j]->capres != 0) {
                 if(init++)
                     std::cout << " // ";
                 std::cout << "va:" << vertices[i].edg[j]->va << " vb:" << vertices[i].edg[j]->vb
-                          << " flow:" << vertices[i].edg[j]->fres << " capacity:" << vertices[i].edg[j]->cap;
+                          << " flow:" << vertices[i].edg[j]->capres << " capacity:" << vertices[i].edg[j]->cap;
             }
         }
         std::cout << std::endl;

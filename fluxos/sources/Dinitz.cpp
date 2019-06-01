@@ -1,4 +1,5 @@
 #include "Dinitz.hpp"
+#include "flow_dep.hpp"
 #include <iostream>
 #include <queue>
 #include <limits>
@@ -22,7 +23,7 @@ bool layers(Graph &G, vector<int> &layer, const int &s, const int &t)
         q.pop();
         for (unsigned int i = 0;i < G.vertices[u].edg.size();++i)
         {
-            if (!G.vertices[u].edg[i]->fres)
+            if (!G.vertices[u].edg[i]->capres)
                 continue;
             int vb = G.vertices[u].edg[i]->vb;
             if (!visited[vb])
@@ -43,7 +44,7 @@ bool find_path(Graph &G, vector<int> &layer, vector<Edge *> &S, const int &u, co
     for (unsigned int i = 0;i < G.vertices[u].edg.size();++i)
     {
         int v = G.vertices[u].edg[i]->vb;
-        if (G.vertices[u].edg[i]->fres == 0 || G.vertices[u].edg[i]->blocked || layer[u] + 1 != layer[v])
+        if (G.vertices[u].edg[i]->capres == 0 || G.vertices[u].edg[i]->blocked || layer[u] + 1 != layer[v])
             continue;
         if (!find_path(G, layer, S, v, t))
         {
@@ -66,7 +67,7 @@ void increase_flow(Graph &G, vector<Edge *> &S)
     for (vector<Edge *>::iterator it = S.begin(); it != S.end(); ++it)
     {
         e = *it;
-        cp = std::min(cp, e->fres);
+        cp = std::min(cp, e->capres);
     }
     for (vector<Edge *>::iterator it = S.begin(); it != S.end(); ++it)
     {
@@ -74,8 +75,8 @@ void increase_flow(Graph &G, vector<Edge *> &S)
         if (!e->back)
         {
             e->f += cp;
-            e->fres = e->cap - e->f;
-            G.edges[e->rev]->fres = e->f;
+            e->capres = e->cap - e->f;
+            G.edges[e->rev]->capres = e->f;
 
             if (e->f == e->cap)
             {
@@ -86,8 +87,8 @@ void increase_flow(Graph &G, vector<Edge *> &S)
         else
         {
             G.edges[e->rev]->f -= cp;
-            G.edges[e->rev]->fres = G.edges[e->rev]->cap - G.edges[e->rev]->f;
-            e->fres = G.edges[e->rev]->f;
+            G.edges[e->rev]->capres = G.edges[e->rev]->cap - G.edges[e->rev]->f;
+            e->capres = G.edges[e->rev]->f;
 
             if (G.edges[e->rev]->f == G.edges[e->rev]->cap)
             {
@@ -118,16 +119,6 @@ bool maximal(Graph &G, vector<int> &layer, const int &s, const int &t)
     return f_l;
 }
 
-int get_flow_value(Graph &G, const int &s)
-{
-    int flow = 0;
-    for (unsigned int i = 0; i < G.vertices[s].edg.size(); ++i)
-    {
-        flow += G.vertices[s].edg[i]->f;
-    }
-    return flow;
-}
-
 int Dinitz(Graph &G, int s, int t)
 {
     const int n_vert = G.n_vert;
@@ -148,5 +139,5 @@ int Dinitz(Graph &G, int s, int t)
         }
     }
 
-    return get_flow_value(G, s);
+    return maximum_flow(G, s);
 }
