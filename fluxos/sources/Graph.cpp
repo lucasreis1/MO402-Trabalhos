@@ -41,19 +41,6 @@ void Graph::add_edge(int va, int vb, int cap)
 	}
 }
 
-Graph& Graph::operator= (const Graph &G)
-{
-    Graph H(G.n_vert);
-    int va,vb,cap;
-    for (int i = 0;i < G.n_edges;++i)
-    {
-        va = G.edges[i]->va;
-        vb = G.edges[i]->vb;
-        cap = G.edges[i]->cap;
-        H.add_edge(va, vb, cap);
-    }
-}
-
 void Graph::print_graph()
 {
     int init;
