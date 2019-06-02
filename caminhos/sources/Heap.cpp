@@ -91,27 +91,21 @@ int Heap::extract_min()
 }
 
 void Heap::decrease_key(int vert, double key)
-	{
-		int pos = pos_store[vert]->pos;
-		if(H[pos]->val < key)
-		{
-			std::cerr << "Tamanho inválido para decrease_key" << std::endl;
-			exit(1);
-		}
-		H[pos]->val = key;
-		int p = parent(pos);
-		while(pos > 0 && H[pos]->val < H[p]->val)
-		{
-			swp(pos,p);
-			pos = p;
-			p = parent(pos);
-		}
-	}
-
-//se ainda esta na fila
-bool Heap::in_queue(int vert)
 {
-	return pos_store[vert]->pos < tam;
+	int pos = pos_store[vert]->pos;
+	if(H[pos]->val < key)
+	{
+		std::cerr << "Tamanho inválido para decrease_key" << std::endl;
+		exit(1);
+	}
+	H[pos]->val = key;
+	int p = parent(pos);
+	while(pos > 0 && H[pos]->val < H[p]->val)
+	{
+		swp(pos,p);
+		pos = p;
+		p = parent(pos);
+	}
 }
 
 double Heap::get_value(int vert)

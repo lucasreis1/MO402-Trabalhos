@@ -142,7 +142,6 @@ int Fibonacci::extract_min()
 		consolidate();
 	}
 	tam--;
-	z->inq = false;
 	return z->vert;
 }
 
@@ -202,9 +201,4 @@ void Fibonacci::decrease_key(int vert, double key)
 	}
 	if(x->chave < min->chave)
 		min = x;
-}
-
-bool Fibonacci::in_queue(int vert)
-{
-	return pos_store[vert]->inq;
 }

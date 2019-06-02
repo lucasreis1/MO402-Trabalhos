@@ -26,7 +26,5 @@ public:
 
     void decrease_key(int vert, double key);
 
-    bool in_queue(int vert);
-
     double get_value(int vert);
 };

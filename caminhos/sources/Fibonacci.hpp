@@ -15,8 +15,7 @@ private:
 		int vert;
 		double chave;
 		bool marca;
-		bool inq;
-		Node(int v,double k=0.0):pai(nullptr),filho(nullptr),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false),inq(true){}
+		Node(int v,double k=0.0):pai(nullptr),filho(nullptr),esquerda(this),direita(this),grau(0),vert(v),chave(k),marca(false){}
 	};
 
 	int n;
@@ -46,8 +45,6 @@ public:
 	void cascading_cut(Node *y);
 
 	void decrease_key(int vert,double key);
-
-	bool in_queue(int vert);
 
 	void print_roots();
 };

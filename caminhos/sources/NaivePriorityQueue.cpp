@@ -40,10 +40,6 @@ void NaivePriorityQueue::decrease_key(int vert, double key) {
     Q[vert].val = key;
 }
 
-bool NaivePriorityQueue::in_queue(int vert) {
-    return Q[vert].is_inqueue;
-}
-
 double NaivePriorityQueue::get_value(int vert) {
     if(Q[vert].is_inqueue == false)
     {
