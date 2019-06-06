@@ -7,7 +7,7 @@ do
 	cmp=0
 	while [ $counter -lt $number ]
 		do
-			if [ $number -gt 10000 ] && [ $counter -gt 100 ];then
+			if [ $number -gt 20000 ] && [ $counter -gt 100 ];then
 				break
 			fi
 			echo "Tratando dados do arquivo" $file com $counter "vizinhos"
@@ -20,8 +20,9 @@ do
 				cmp=0
 			fi
 	done
-	if [ $number -lt  10000 ]; then
-		tratamento_tsp/tratamento_de_dados full $file
+	echo "Computando grafo cheio para" $file
+	if [ $number -lt  50000 ]; then
+		tratamento_tsp/tratamento_de_dados f $file
 	fi
 	mv *.txt $out_folder
 done
