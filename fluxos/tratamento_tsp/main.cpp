@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
 				std::cout << "Imprimindo vizinhos do vértice " << i << "...\n";
 			for(unsigned int j = 0; j < sz ; j++)
 			{
-				if(!exists_edge[j][i] && i!=j && chance >= (double)rnd()/rnd.max())
+				if(i != j && !exists_edge[j][i]&& chance >= (double)rnd()/rnd.max())
 				{
 					arestas[i].push_back(Edge(i,j,euclid_dist(vetor[i].x,vetor[i].y,vetor[j].x,vetor[j].y)));
 					nar++;
