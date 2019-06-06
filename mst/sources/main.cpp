@@ -54,8 +54,8 @@ int main(int argc, char * argv[])
 		cerr << "Opção inválida" << endl;
 		return 1;
 	}
-	chrono::milliseconds elapsed = chrono::duration_cast<chrono::milliseconds>(end-start);
-	cout << "Tempo de execução do algoritmo: " << elapsed.count() << " ms" << endl;
+	chrono::microseconds elapsed = chrono::duration_cast<chrono::microseconds>(end-start);
+	cout << "Tempo de execução do algoritmo: " << elapsed.count() << " us" << endl;
 	outfile.open(argv[4],fstream::out);
 	outfile << fixed << cost;
 	for(unsigned int i = 0 ; i < res.size() ; i++)

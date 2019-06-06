@@ -40,7 +40,16 @@ int main(int argc, char* argv[])
 	in.close();
 	unsigned int sz = vetor.size();
 	int filesize = string(argv[2]).size();
-	string out_file = string(argv[2]).substr(0,filesize-4) + ".txt";
+	string pout = string(argv[2]);
+	int i = pout.size() - 1;
+	for(; i >= 0 && pout[i] != '/'; i--)
+		;
+	i++;
+	string out_file;
+	if(string(argv[1]) == "f")
+		out_file = pout.substr(i,filesize-i-4) + "f.txt";
+	else
+		out_file = pout.substr(i,filesize-i-4) + string(argv[3]) + ".txt";
 	fstream out;
 	out.open(out_file, ios::out);
 	if(!out.is_open())
