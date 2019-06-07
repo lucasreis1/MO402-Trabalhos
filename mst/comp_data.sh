@@ -19,9 +19,9 @@ do
 				counter=$((counter*2))
 				cmp=0
 			fi
-	done
-	echo "Computando grafo cheio para" $file
+	done	
 	if [ $number -lt  50000 ]; then
+		echo "Computando grafo cheio para " $file
 		tratamento_tsp/tratamento_de_dados f $file
 	fi
 	mv *.txt $out_folder

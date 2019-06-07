@@ -11,7 +11,7 @@ void NaivePriorityQueue::build_heap(int src) {
     for(int i = 0 ; i < tam ; i++)
     {
         if(i != src)
-            Q[i].val = std::numeric_limits<float>::max();
+            Q[i].val = std::numeric_limits<float>::infinity();
     }
 }
 
@@ -21,7 +21,7 @@ int NaivePriorityQueue::extract_min() {
         std::cerr << "Erro no tamanho do heap" << std::endl;
         exit(1);
     }
-    float min = std::numeric_limits<float>::max();
+    float min = std::numeric_limits<float>::infinity();
     int min_index = 0;
     for (unsigned int i = 0 ; i < Q.size() ; i++)
     {

@@ -67,7 +67,7 @@ void Heap::build_heap(int src)
 			H[i] = new Node();
 			H[i]->pos = i;
 			H[i]->vert = i;
-			H[i]->val = std::numeric_limits<float>::max();
+			H[i]->val = std::numeric_limits<float>::infinity();
 			pos_store[i] = H[i];
 		}
 	}
