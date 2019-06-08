@@ -49,21 +49,20 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	string p;
-	char c;
+	char rdline[50];
 	int i = 0;
-	while(i < 4)
-	{
-		c = fgetc(in);
-		if(c == '\n')
-			i++;
-	}
 	int n;
-	fscanf(in,"DIMENSION : %d",&n);
-	while(i < 7)
+	string cmp_str = "";
+	while(cmp_str.find("DIMENSION :") == string::npos)
 	{
-		c = fgetc(in);
-		if(c == '\n')
-			i++;
+		fgets(rdline,sizeof(rdline),in);
+		cmp_str = string(rdline);		
+	}
+	n = std::stoi(cmp_str.substr(12,cmp_str.size()-13));
+	while(cmp_str.find("NODE_COORD_SECTION") == string::npos)
+	{
+		fgets(rdline,sizeof(rdline),in);
+		cmp_str = string(rdline);
 	}
 	int id;
 	float a,b;
@@ -74,8 +73,17 @@ int main(int argc, char* argv[])
 	}
 	fclose(in);
 	unsigned int sz = vetor.size();
+	string pout = string(argv[2]);
 	int filesize = string(argv[2]).size();
-	string out_file = string(argv[2]).substr(0,filesize-4) + ".txt";
+	i = pout.size() - 1;
+	for(; i>=0 && pout[i] != '/'; i--)
+		;
+	i++;
+	string out_file;
+	if(string(argv[1]) == "f")
+		out_file = pout.substr(i,filesize-i-4) + "-f.txt";
+	else
+		out_file = pout.substr(i,filesize-i-4) + "-" + string(argv[5]) + "\%.txt";
 	out = fopen(out_file.c_str(),"w");
 	if(!out)
 	{

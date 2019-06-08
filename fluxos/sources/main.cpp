@@ -29,11 +29,11 @@ int main(int argc, char * argv[])
 	cout << "Lendo grafo..." << endl;
     fscanf(in,"%d\n%d\n%d\n%d\n",&nver,&narestas,&s,&t);
     Graph G(nver);
-	for(int i = 0 ; i < narestas; i++)
-	{
-        fscanf(in,"%d %d %d\n",&va,&vb,&cap);
-		G.add_edge(va,vb,cap);
-	}
+    for(int i = 0 ; i < narestas; i++)
+    {
+	    fscanf(in,"%d %d %d\n",&va,&vb,&cap);
+	    G.add_edge(va,vb,cap);
+    }
     fclose(in);
 
     chrono::system_clock::time_point start,end;
@@ -42,7 +42,7 @@ int main(int argc, char * argv[])
     if(string(argv[1]) == "ford-fulkerson")
     {
         start = chrono::system_clock::now();
-		f = ford_fulkerson(G,s,t);
+	f = ford_fulkerson(G,s,t);
         end = chrono::system_clock::now();
     }
     else if(string(argv[1]) == "edmonds-karp")
@@ -81,5 +81,5 @@ int main(int argc, char * argv[])
 	std::cout << "fluxo máximo: " << f << std::endl;
 
     fclose(out);
-	return 0;
+    return 0;
 }

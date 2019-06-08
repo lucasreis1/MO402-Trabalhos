@@ -45,11 +45,4 @@ public:
 	void add_vert();
 
 	void add_edge(int va, int vb, int cap);
-
-
-	void print_graph();
-
-    void print_resgraph();
-
-	void print_edges();
 };
