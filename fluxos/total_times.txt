@@ -1,0 +1,240 @@
+ja9847-10%-d :  Tempo de execução do algoritmo: 142830 ms
+ja9847-10%-ek :  Tempo de execução do algoritmo: 556330 ms
+ja9847-10%-ff :  Tempo de execução do algoritmo: 8553419 ms
+ja9847-15%-d :  Tempo de execução do algoritmo: 420165 ms
+ja9847-15%-ek :  Tempo de execução do algoritmo: 1796589 ms
+ja9847-15%-ff :  Tempo de execução do algoritmo: 8723689 ms
+ja9847-20%-d :  Tempo de execução do algoritmo: 757814 ms
+ja9847-20%-ek :  Lendo grafo...
+ja9847-20%-ff :  Tempo de execução do algoritmo: 8449560 ms
+ja9847-25%-d :  Tempo de execução do algoritmo: 1342821 ms
+ja9847-25%-ek :  Tempo de execução do algoritmo: 2910053 ms
+ja9847-25%-ff :  Tempo de execução do algoritmo: 13183203 ms
+ja9847-30%-d :  Tempo de execução do algoritmo: 2196519 ms
+ja9847-30%-ek :  Tempo de execução do algoritmo: 8406799 ms
+ja9847-30%-ff :  Tempo de execução do algoritmo: 9030848 ms
+ja9847-35%-d :  Tempo de execução do algoritmo: 3519366 ms
+ja9847-35%-ek :  Tempo de execução do algoritmo: 8187684 ms
+ja9847-35%-ff :  Tempo de execução do algoritmo: 9729093 ms
+ja9847-40%-d :  Tempo de execução do algoritmo: 7649254 ms
+ja9847-40%-ek :  Tempo de execução do algoritmo: 14232682 ms
+ja9847-40%-ff :  Tempo de execução do algoritmo: 6460559 ms
+ja9847-45%-d :  Tempo de execução do algoritmo: 7336279 ms
+ja9847-45%-ek :  Tempo de execução do algoritmo: 14006165 ms
+ja9847-45%-ff :  Tempo de execução do algoritmo: 10516870 ms
+ja9847-50%-d : 
+ja9847-50%-ek : 
+ja9847-50%-ff :  Tempo de execução do algoritmo: 2992649 ms
+ja9847-55%-d : 
+ja9847-55%-ek : 
+ja9847-55%-ff :  Tempo de execução do algoritmo: 14872082 ms
+ja9847-5%-d :  Tempo de execução do algoritmo: 28376 ms
+ja9847-5%-ek :  Tempo de execução do algoritmo: 114478 ms
+ja9847-5%-ff : 
+ja9847-60%-d : 
+ja9847-60%-ek : 
+ja9847-60%-ff : 
+ja9847-65%-d : 
+ja9847-65%-ek : 
+ja9847-65%-ff : 
+ja9847-70%-d : 
+ja9847-70%-ek : 
+ja9847-70%-ff : 
+ja9847-75%-d : 
+ja9847-75%-ek : 
+ja9847-75%-ff : 
+ja9847-80%-d : 
+ja9847-80%-ek : 
+ja9847-80%-ff : 
+ja9847-85%-d : 
+ja9847-85%-ek : 
+ja9847-85%-ff : 
+ja9847-90%-d : 
+ja9847-90%-ek : 
+ja9847-90%-ff : 
+ja9847-95%-d : 
+ja9847-95%-ek : 
+ja9847-95%-ff : 
+ja9847-f-d : 
+ja9847-f-ek : 
+ja9847-f-ff : 
+lu980-10%-d :  Tempo de execução do algoritmo: 197 ms
+lu980-10%-ek :  Tempo de execução do algoritmo: 437 ms
+lu980-10%-ff :  Tempo de execução do algoritmo: 1610 ms
+lu980-15%-d :  Tempo de execução do algoritmo: 332 ms
+lu980-15%-ek :  Tempo de execução do algoritmo: 633 ms
+lu980-15%-ff :  Tempo de execução do algoritmo: 1987 ms
+lu980-20%-d :  Tempo de execução do algoritmo: 562 ms
+lu980-20%-ek :  Tempo de execução do algoritmo: 783 ms
+lu980-20%-ff :  Tempo de execução do algoritmo: 1227 ms
+lu980-25%-d :  Tempo de execução do algoritmo: 1073 ms
+lu980-25%-ek :  Tempo de execução do algoritmo: 1845 ms
+lu980-25%-ff :  Tempo de execução do algoritmo: 1856 ms
+lu980-30%-d :  Tempo de execução do algoritmo: 3022 ms
+lu980-30%-ek :  Tempo de execução do algoritmo: 2966 ms
+lu980-30%-ff :  Tempo de execução do algoritmo: 1789 ms
+lu980-35%-d :  Tempo de execução do algoritmo: 2883 ms
+lu980-35%-ek :  Tempo de execução do algoritmo: 5305 ms
+lu980-35%-ff :  Tempo de execução do algoritmo: 2747 ms
+lu980-40%-d :  Tempo de execução do algoritmo: 5968 ms
+lu980-40%-ek :  Tempo de execução do algoritmo: 5885 ms
+lu980-40%-ff :  Tempo de execução do algoritmo: 1475 ms
+lu980-45%-d :  Tempo de execução do algoritmo: 8001 ms
+lu980-45%-ek :  Tempo de execução do algoritmo: 9375 ms
+lu980-45%-ff :  Tempo de execução do algoritmo: 1594 ms
+lu980-50%-d :  Tempo de execução do algoritmo: 6595 ms
+lu980-50%-ek :  Tempo de execução do algoritmo: 14294 ms
+lu980-50%-ff :  Tempo de execução do algoritmo: 1837 ms
+lu980-55%-d :  Tempo de execução do algoritmo: 13046 ms
+lu980-55%-ek :  Tempo de execução do algoritmo: 18112 ms
+lu980-55%-ff :  Tempo de execução do algoritmo: 1639 ms
+lu980-5%-d :  Tempo de execução do algoritmo: 67 ms
+lu980-5%-ek :  Tempo de execução do algoritmo: 180 ms
+lu980-5%-ff :  Tempo de execução do algoritmo: 1173 ms
+lu980-60%-d :  Tempo de execução do algoritmo: 7430 ms
+lu980-60%-ek :  Tempo de execução do algoritmo: 23320 ms
+lu980-60%-ff :  Tempo de execução do algoritmo: 2523 ms
+lu980-65%-d :  Tempo de execução do algoritmo: 7844 ms
+lu980-65%-ek :  Tempo de execução do algoritmo: 20068 ms
+lu980-65%-ff :  Tempo de execução do algoritmo: 845 ms
+lu980-70%-d :  Tempo de execução do algoritmo: 20310 ms
+lu980-70%-ek :  Tempo de execução do algoritmo: 37616 ms
+lu980-70%-ff :  Tempo de execução do algoritmo: 16041 ms
+lu980-75%-d :  Tempo de execução do algoritmo: 22856 ms
+lu980-75%-ek :  Tempo de execução do algoritmo: 53706 ms
+lu980-75%-ff :  Tempo de execução do algoritmo: 9938 ms
+lu980-80%-d :  Tempo de execução do algoritmo: 8123 ms
+lu980-80%-ek :  Tempo de execução do algoritmo: 34244 ms
+lu980-80%-ff :  Tempo de execução do algoritmo: 1484 ms
+lu980-85%-d :  Tempo de execução do algoritmo: 23681 ms
+lu980-85%-ek :  Tempo de execução do algoritmo: 56931 ms
+lu980-85%-ff :  Tempo de execução do algoritmo: 31535 ms
+lu980-90%-d :  Tempo de execução do algoritmo: 11923 ms
+lu980-90%-ek :  Tempo de execução do algoritmo: 46908 ms
+lu980-90%-ff :  Tempo de execução do algoritmo: 1804 ms
+lu980-95%-d :  Tempo de execução do algoritmo: 10947 ms
+lu980-95%-ek :  Tempo de execução do algoritmo: 49036 ms
+lu980-95%-ff :  Tempo de execução do algoritmo: 971 ms
+lu980-f-d :  Tempo de execução do algoritmo: 248 ms
+lu980-f-ek :  Tempo de execução do algoritmo: 5075 ms
+lu980-f-ff :  Tempo de execução do algoritmo: 13055 ms
+qa194-10%-d :  Tempo de execução do algoritmo: 4 ms
+qa194-10%-ek :  Tempo de execução do algoritmo: 13 ms
+qa194-10%-ff :  Tempo de execução do algoritmo: 38 ms
+qa194-15%-d :  Tempo de execução do algoritmo: 4 ms
+qa194-15%-ek :  Tempo de execução do algoritmo: 10 ms
+qa194-15%-ff :  Tempo de execução do algoritmo: 51 ms
+qa194-20%-d :  Tempo de execução do algoritmo: 7 ms
+qa194-20%-ek :  Tempo de execução do algoritmo: 20 ms
+qa194-20%-ff :  Tempo de execução do algoritmo: 35 ms
+qa194-25%-d :  Tempo de execução do algoritmo: 13 ms
+qa194-25%-ek :  Tempo de execução do algoritmo: 26 ms
+qa194-25%-ff :  Tempo de execução do algoritmo: 79 ms
+qa194-30%-d :  Tempo de execução do algoritmo: 22 ms
+qa194-30%-ek :  Tempo de execução do algoritmo: 52 ms
+qa194-30%-ff :  Tempo de execução do algoritmo: 51 ms
+qa194-35%-d :  Tempo de execução do algoritmo: 30 ms
+qa194-35%-ek :  Tempo de execução do algoritmo: 30 ms
+qa194-35%-ff :  Tempo de execução do algoritmo: 49 ms
+qa194-40%-d :  Tempo de execução do algoritmo: 61 ms
+qa194-40%-ek :  Tempo de execução do algoritmo: 54 ms
+qa194-40%-ff :  Tempo de execução do algoritmo: 35 ms
+qa194-45%-d :  Tempo de execução do algoritmo: 86 ms
+qa194-45%-ek :  Tempo de execução do algoritmo: 86 ms
+qa194-45%-ff :  Tempo de execução do algoritmo: 50 ms
+qa194-50%-d :  Tempo de execução do algoritmo: 101 ms
+qa194-50%-ek :  Tempo de execução do algoritmo: 179 ms
+qa194-50%-ff :  Tempo de execução do algoritmo: 75 ms
+qa194-55%-d :  Tempo de execução do algoritmo: 66 ms
+qa194-55%-ek :  Tempo de execução do algoritmo: 111 ms
+qa194-55%-ff :  Tempo de execução do algoritmo: 59 ms
+qa194-5%-d :  Tempo de execução do algoritmo: 2 ms
+qa194-5%-ek :  Tempo de execução do algoritmo: 3 ms
+qa194-5%-ff :  Tempo de execução do algoritmo: 52 ms
+qa194-60%-d :  Tempo de execução do algoritmo: 79 ms
+qa194-60%-ek :  Tempo de execução do algoritmo: 169 ms
+qa194-60%-ff :  Tempo de execução do algoritmo: 133 ms
+qa194-65%-d :  Tempo de execução do algoritmo: 136 ms
+qa194-65%-ek :  Tempo de execução do algoritmo: 189 ms
+qa194-65%-ff :  Tempo de execução do algoritmo: 82 ms
+qa194-70%-d :  Tempo de execução do algoritmo: 144 ms
+qa194-70%-ek :  Tempo de execução do algoritmo: 208 ms
+qa194-70%-ff :  Tempo de execução do algoritmo: 96 ms
+qa194-75%-d :  Tempo de execução do algoritmo: 142 ms
+qa194-75%-ek :  Tempo de execução do algoritmo: 309 ms
+qa194-75%-ff :  Tempo de execução do algoritmo: 100 ms
+qa194-80%-d :  Tempo de execução do algoritmo: 84 ms
+qa194-80%-ek :  Tempo de execução do algoritmo: 176 ms
+qa194-80%-ff :  Tempo de execução do algoritmo: 19 ms
+qa194-85%-d :  Tempo de execução do algoritmo: 68 ms
+qa194-85%-ek :  Tempo de execução do algoritmo: 189 ms
+qa194-85%-ff :  Tempo de execução do algoritmo: 29 ms
+qa194-90%-d :  Tempo de execução do algoritmo: 57 ms
+qa194-90%-ek :  Tempo de execução do algoritmo: 132 ms
+qa194-90%-ff :  Tempo de execução do algoritmo: 11 ms
+qa194-95%-d :  Tempo de execução do algoritmo: 59 ms
+qa194-95%-ek :  Tempo de execução do algoritmo: 163 ms
+qa194-95%-ff :  Tempo de execução do algoritmo: 220 ms
+qa194-f-d :  Tempo de execução do algoritmo: 9 ms
+qa194-f-ek :  Tempo de execução do algoritmo: 32 ms
+qa194-f-ff :  Tempo de execução do algoritmo: 69 ms
+uy734-10%-d :  Tempo de execução do algoritmo: 58 ms
+uy734-10%-ek :  Tempo de execução do algoritmo: 142 ms
+uy734-10%-ff :  Tempo de execução do algoritmo: 3078 ms
+uy734-15%-d :  Tempo de execução do algoritmo: 200 ms
+uy734-15%-ek :  Tempo de execução do algoritmo: 360 ms
+uy734-15%-ff :  Tempo de execução do algoritmo: 2416 ms
+uy734-20%-d :  Tempo de execução do algoritmo: 268 ms
+uy734-20%-ek :  Tempo de execução do algoritmo: 529 ms
+uy734-20%-ff :  Tempo de execução do algoritmo: 1885 ms
+uy734-25%-d :  Tempo de execução do algoritmo: 411 ms
+uy734-25%-ek :  Tempo de execução do algoritmo: 422 ms
+uy734-25%-ff :  Tempo de execução do algoritmo: 1888 ms
+uy734-30%-d :  Tempo de execução do algoritmo: 1152 ms
+uy734-30%-ek :  Tempo de execução do algoritmo: 1382 ms
+uy734-30%-ff :  Tempo de execução do algoritmo: 2364 ms
+uy734-35%-d :  Tempo de execução do algoritmo: 1377 ms
+uy734-35%-ek :  Tempo de execução do algoritmo: 1239 ms
+uy734-35%-ff :  Tempo de execução do algoritmo: 1064 ms
+uy734-40%-d :  Tempo de execução do algoritmo: 1437 ms
+uy734-40%-ek :  Tempo de execução do algoritmo: 2533 ms
+uy734-40%-ff :  Tempo de execução do algoritmo: 2585 ms
+uy734-45%-d :  Tempo de execução do algoritmo: 3059 ms
+uy734-45%-ek :  Tempo de execução do algoritmo: 3726 ms
+uy734-45%-ff :  Tempo de execução do algoritmo: 2933 ms
+uy734-50%-d :  Tempo de execução do algoritmo: 3399 ms
+uy734-50%-ek :  Tempo de execução do algoritmo: 4411 ms
+uy734-50%-ff :  Tempo de execução do algoritmo: 840 ms
+uy734-55%-d :  Tempo de execução do algoritmo: 2450 ms
+uy734-55%-ek :  Tempo de execução do algoritmo: 6232 ms
+uy734-55%-ff :  Tempo de execução do algoritmo: 5903 ms
+uy734-5%-d :  Tempo de execução do algoritmo: 27 ms
+uy734-5%-ek :  Tempo de execução do algoritmo: 67 ms
+uy734-5%-ff :  Tempo de execução do algoritmo: 3195 ms
+uy734-60%-d :  Tempo de execução do algoritmo: 3215 ms
+uy734-60%-ek :  Tempo de execução do algoritmo: 11920 ms
+uy734-60%-ff :  Tempo de execução do algoritmo: 874 ms
+uy734-65%-d :  Tempo de execução do algoritmo: 4160 ms
+uy734-65%-ek :  Tempo de execução do algoritmo: 11760 ms
+uy734-65%-ff :  Tempo de execução do algoritmo: 3638 ms
+uy734-70%-d :  Tempo de execução do algoritmo: 5208 ms
+uy734-70%-ek :  Tempo de execução do algoritmo: 6707 ms
+uy734-70%-ff :  Tempo de execução do algoritmo: 1212 ms
+uy734-75%-d :  Tempo de execução do algoritmo: 5995 ms
+uy734-75%-ek :  Tempo de execução do algoritmo: 13940 ms
+uy734-75%-ff :  Tempo de execução do algoritmo: 14502 ms
+uy734-80%-d :  Tempo de execução do algoritmo: 7272 ms
+uy734-80%-ek :  Tempo de execução do algoritmo: 23319 ms
+uy734-80%-ff :  Tempo de execução do algoritmo: 1338 ms
+uy734-85%-d :  Tempo de execução do algoritmo: 6377 ms
+uy734-85%-ek :  Tempo de execução do algoritmo: 25525 ms
+uy734-85%-ff :  Tempo de execução do algoritmo: 914 ms
+uy734-90%-d :  Tempo de execução do algoritmo: 4937 ms
+uy734-90%-ek :  Tempo de execução do algoritmo: 21986 ms
+uy734-90%-ff :  Tempo de execução do algoritmo: 14664 ms
+uy734-95%-d :  Tempo de execução do algoritmo: 1753 ms
+uy734-95%-ek :  Tempo de execução do algoritmo: 4253 ms
+uy734-95%-ff :  Tempo de execução do algoritmo: 327 ms
+uy734-f-d :  Tempo de execução do algoritmo: 12 ms
+uy734-f-ek :  Tempo de execução do algoritmo: 6 ms
+uy734-f-ff :  Tempo de execução do algoritmo: 6 ms
