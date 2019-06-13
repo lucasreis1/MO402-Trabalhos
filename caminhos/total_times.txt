@@ -761,6 +761,7 @@ qa194-85.000000%-j0 :  Tempo de execução do algoritmo: 68086 us
 qa194-85.000000%.j1 :  Tempo de execução do algoritmo: 71001 us
 qa194-85.000000%.j2 :  Tempo de execução do algoritmo: 84215 us
 qa194-85.000000%-sp1 :  Tempo de execução do algoritmo: 87022 us
+qa194-8.600000%-sp0 :  Tempo de execução do algoritmo: 1919279 us
 qa194-90.000000%-bf :  Tempo de execução do algoritmo: 27167 us
 qa194-90.000000%-dj0 :  Tempo de execução do algoritmo: 301 us
 qa194-90.000000%-dj1 :  Tempo de execução do algoritmo: 335 us
@@ -788,6 +789,7 @@ qa194-95.000000%-fw :  Tempo de execução do algoritmo: 24658 us
 qa194-95.000000%-j0 :  Tempo de execução do algoritmo: 63963 us
 qa194-95.000000%.j1 :  Tempo de execução do algoritmo: 97319 us
 qa194-95.000000%.j2 :  Tempo de execução do algoritmo: 79593 us
+qa194-95.000000%-sp0 :  Tempo de execução do algoritmo: 1929196 us
 qa194-95.000000%-sp1 :  Tempo de execução do algoritmo: 98373 us
 qa194-f-bf :  Tempo de execução do algoritmo: 13249 us
 qa194-f-dj0 :  Tempo de execução do algoritmo: 194 us
@@ -911,6 +913,7 @@ uy734-1.000000%.j1 :  Tempo de execução do algoritmo: 1152117 us
 uy734-1.000000%.j2 :  Tempo de execução do algoritmo: 283811 us
 uy734-1.000000%-sp0 :  Tempo de execução do algoritmo: 472110060 us
 uy734-1.000000%-sp1 :  Tempo de execução do algoritmo: 5729197 us
+uy734-10.200000%-sp0 :  Lendo grafo...
 uy734-15.000000%-bf :  Tempo de execução do algoritmo: 154241 us
 uy734-15.000000%-dj0 :  Tempo de execução do algoritmo: 895 us
 uy734-15.000000%-dj1 :  Tempo de execução do algoritmo: 1689 us
@@ -1143,6 +1146,7 @@ uy734-95.000000%-fw :  Tempo de execução do algoritmo: 620394 us
 uy734-95.000000%-j0 :  Tempo de execução do algoritmo: 2652933 us
 uy734-95.000000%.j1 :  Tempo de execução do algoritmo: 3346405 us
 uy734-95.000000%.j2 :  Tempo de execução do algoritmo: 2767473 us
+uy734-95.000000%-sp0 :  Tempo de execução do algoritmo: 467732227 us
 uy734-95.000000%-sp1 :  Tempo de execução do algoritmo: 5536724 us
 uy734-f-bf :  Tempo de execução do algoritmo: 480783 us
 uy734-f-dj0 :  Tempo de execução do algoritmo: 1255 us
