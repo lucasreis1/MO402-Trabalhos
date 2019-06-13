@@ -455,6 +455,7 @@ qa194-0.100000%-fw :  Tempo de execução do algoritmo: 27158 us
 qa194-0.100000%-j0 :  Tempo de execução do algoritmo: 3356 us
 qa194-0.100000%.j1 :  Tempo de execução do algoritmo: 16267 us
 qa194-0.100000%.j2 :  Tempo de execução do algoritmo: 14048 us
+qa194-0.100000%-sp0 :  Tempo de execução do algoritmo: 1958656 us
 qa194-0.100000%-sp1 :  Tempo de execução do algoritmo: 87752 us
 qa194-0.200000%-bf :  Tempo de execução do algoritmo: 46 us
 qa194-0.200000%-dj0 :  Tempo de execução do algoritmo: 36 us
@@ -464,6 +465,7 @@ qa194-0.200000%-fw :  Tempo de execução do algoritmo: 18365 us
 qa194-0.200000%-j0 :  Tempo de execução do algoritmo: 6020 us
 qa194-0.200000%.j1 :  Tempo de execução do algoritmo: 16169 us
 qa194-0.200000%.j2 :  Tempo de execução do algoritmo: 9201 us
+qa194-0.200000%-sp0 :  Tempo de execução do algoritmo: 1996739 us
 qa194-0.200000%-sp1 :  Tempo de execução do algoritmo: 83935 us
 qa194-0.300000%-bf :  Tempo de execução do algoritmo: 70 us
 qa194-0.300000%-dj0 :  Tempo de execução do algoritmo: 33 us
@@ -473,6 +475,7 @@ qa194-0.300000%-fw :  Tempo de execução do algoritmo: 27281 us
 qa194-0.300000%-j0 :  Tempo de execução do algoritmo: 3552 us
 qa194-0.300000%.j1 :  Tempo de execução do algoritmo: 16640 us
 qa194-0.300000%.j2 :  Tempo de execução do algoritmo: 10635 us
+qa194-0.300000%-sp0 :  Tempo de execução do algoritmo: 1972321 us
 qa194-0.300000%-sp1 :  Tempo de execução do algoritmo: 85474 us
 qa194-0.400000%-bf :  Tempo de execução do algoritmo: 116 us
 qa194-0.400000%-dj0 :  Tempo de execução do algoritmo: 34 us
@@ -482,6 +485,7 @@ qa194-0.400000%-fw :  Tempo de execução do algoritmo: 17300 us
 qa194-0.400000%-j0 :  Tempo de execução do algoritmo: 4875 us
 qa194-0.400000%.j1 :  Tempo de execução do algoritmo: 21600 us
 qa194-0.400000%.j2 :  Tempo de execução do algoritmo: 8842 us
+qa194-0.400000%-sp0 :  Tempo de execução do algoritmo: 1967696 us
 qa194-0.400000%-sp1 :  Tempo de execução do algoritmo: 61200 us
 qa194-0.500000%-bf :  Tempo de execução do algoritmo: 100 us
 qa194-0.500000%-dj0 :  Tempo de execução do algoritmo: 33 us
@@ -491,6 +495,7 @@ qa194-0.500000%-fw :  Tempo de execução do algoritmo: 17853 us
 qa194-0.500000%-j0 :  Tempo de execução do algoritmo: 2786 us
 qa194-0.500000%.j1 :  Tempo de execução do algoritmo: 17599 us
 qa194-0.500000%.j2 :  Tempo de execução do algoritmo: 9112 us
+qa194-0.500000%-sp0 :  Tempo de execução do algoritmo: 1947898 us
 qa194-0.500000%-sp1 :  Tempo de execução do algoritmo: 84089 us
 qa194-0.600000%-bf :  Tempo de execução do algoritmo: 117 us
 qa194-0.600000%-dj0 :  Tempo de execução do algoritmo: 31 us
@@ -500,6 +505,7 @@ qa194-0.600000%-fw :  Tempo de execução do algoritmo: 27449 us
 qa194-0.600000%-j0 :  Tempo de execução do algoritmo: 7143 us
 qa194-0.600000%.j1 :  Tempo de execução do algoritmo: 24009 us
 qa194-0.600000%.j2 :  Tempo de execução do algoritmo: 10692 us
+qa194-0.600000%-sp0 :  Tempo de execução do algoritmo: 1970801 us
 qa194-0.600000%-sp1 :  Tempo de execução do algoritmo: 105367 us
 qa194-0.700000%-bf :  Tempo de execução do algoritmo: 155 us
 qa194-0.700000%-dj0 :  Tempo de execução do algoritmo: 37 us
@@ -509,6 +515,7 @@ qa194-0.700000%-fw :  Tempo de execução do algoritmo: 27568 us
 qa194-0.700000%-j0 :  Tempo de execução do algoritmo: 4416 us
 qa194-0.700000%.j1 :  Tempo de execução do algoritmo: 35049 us
 qa194-0.700000%.j2 :  Tempo de execução do algoritmo: 18062 us
+qa194-0.700000%-sp0 :  Tempo de execução do algoritmo: 1963369 us
 qa194-0.700000%-sp1 :  Tempo de execução do algoritmo: 84862 us
 qa194-0.800000%-bf :  Tempo de execução do algoritmo: 177 us
 qa194-0.800000%-dj0 :  Tempo de execução do algoritmo: 33 us
@@ -518,6 +525,7 @@ qa194-0.800000%-fw :  Tempo de execução do algoritmo: 28678 us
 qa194-0.800000%-j0 :  Tempo de execução do algoritmo: 9101 us
 qa194-0.800000%.j1 :  Tempo de execução do algoritmo: 37924 us
 qa194-0.800000%.j2 :  Tempo de execução do algoritmo: 20205 us
+qa194-0.800000%-sp0 :  Tempo de execução do algoritmo: 1973115 us
 qa194-0.800000%-sp1 :  Tempo de execução do algoritmo: 107493 us
 qa194-0.900000%-bf :  Tempo de execução do algoritmo: 185 us
 qa194-0.900000%-dj0 :  Tempo de execução do algoritmo: 62 us
@@ -527,6 +535,7 @@ qa194-0.900000%-fw :  Tempo de execução do algoritmo: 29223 us
 qa194-0.900000%-j0 :  Tempo de execução do algoritmo: 10524 us
 qa194-0.900000%.j1 :  Tempo de execução do algoritmo: 47465 us
 qa194-0.900000%.j2 :  Tempo de execução do algoritmo: 25134 us
+qa194-0.900000%-sp0 :  Tempo de execução do algoritmo: 1958164 us
 qa194-0.900000%-sp1 :  Tempo de execução do algoritmo: 86222 us
 qa194-10.000000%-bf :  Tempo de execução do algoritmo: 2524 us
 qa194-10.000000%-dj0 :  Tempo de execução do algoritmo: 119 us
@@ -545,6 +554,7 @@ qa194-1.000000%-fw :  Tempo de execução do algoritmo: 28053 us
 qa194-1.000000%-j0 :  Tempo de execução do algoritmo: 11365 us
 qa194-1.000000%.j1 :  Tempo de execução do algoritmo: 32127 us
 qa194-1.000000%.j2 :  Tempo de execução do algoritmo: 26492 us
+qa194-1.000000%-sp0 :  Tempo de execução do algoritmo: 1964801 us
 qa194-1.000000%-sp1 :  Tempo de execução do algoritmo: 113048 us
 qa194-15.000000%-bf :  Tempo de execução do algoritmo: 3397 us
 qa194-15.000000%-dj0 :  Tempo de execução do algoritmo: 120 us
@@ -572,6 +582,7 @@ qa194-2.000000%-fw :  Tempo de execução do algoritmo: 30973 us
 qa194-2.000000%-j0 :  Tempo de execução do algoritmo: 20947 us
 qa194-2.000000%.j1 :  Tempo de execução do algoritmo: 48342 us
 qa194-2.000000%.j2 :  Tempo de execução do algoritmo: 21475 us
+qa194-2.000000%-sp0 :  Tempo de execução do algoritmo: 1967942 us
 qa194-2.000000%-sp1 :  Tempo de execução do algoritmo: 112804 us
 qa194-25.000000%-bf :  Tempo de execução do algoritmo: 5599 us
 qa194-25.000000%-dj0 :  Tempo de execução do algoritmo: 122 us
@@ -599,6 +610,7 @@ qa194-3.000000%-fw :  Tempo de execução do algoritmo: 32875 us
 qa194-3.000000%-j0 :  Tempo de execução do algoritmo: 9592 us
 qa194-3.000000%.j1 :  Tempo de execução do algoritmo: 22526 us
 qa194-3.000000%.j2 :  Tempo de execução do algoritmo: 15833 us
+qa194-3.000000%-sp0 :  Tempo de execução do algoritmo: 1982069 us
 qa194-3.000000%-sp1 :  Tempo de execução do algoritmo: 73723 us
 qa194-35.000000%-bf :  Tempo de execução do algoritmo: 12586 us
 qa194-35.000000%-dj0 :  Tempo de execução do algoritmo: 200 us
@@ -626,6 +638,7 @@ qa194-4.000000%-fw :  Tempo de execução do algoritmo: 20324 us
 qa194-4.000000%-j0 :  Tempo de execução do algoritmo: 24097 us
 qa194-4.000000%.j1 :  Tempo de execução do algoritmo: 51608 us
 qa194-4.000000%.j2 :  Tempo de execução do algoritmo: 37562 us
+qa194-4.000000%-sp0 :  Tempo de execução do algoritmo: 1967776 us
 qa194-4.000000%-sp1 :  Tempo de execução do algoritmo: 110072 us
 qa194-45.000000%-bf :  Tempo de execução do algoritmo: 15789 us
 qa194-45.000000%-dj0 :  Tempo de execução do algoritmo: 254 us
@@ -653,6 +666,7 @@ qa194-5.000000%-fw :  Tempo de execução do algoritmo: 32644 us
 qa194-5.000000%-j0 :  Tempo de execução do algoritmo: 10732 us
 qa194-5.000000%.j1 :  Tempo de execução do algoritmo: 48892 us
 qa194-5.000000%.j2 :  Tempo de execução do algoritmo: 17195 us
+qa194-5.000000%-sp0 :  Tempo de execução do algoritmo: 1984513 us
 qa194-5.000000%-sp1 :  Tempo de execução do algoritmo: 70806 us
 qa194-55.000000%-bf :  Tempo de execução do algoritmo: 19035 us
 qa194-55.000000%-dj0 :  Tempo de execução do algoritmo: 298 us
@@ -680,6 +694,7 @@ qa194-6.000000%-fw :  Tempo de execução do algoritmo: 15040 us
 qa194-6.000000%-j0 :  Tempo de execução do algoritmo: 16550 us
 qa194-6.000000%.j1 :  Tempo de execução do algoritmo: 46931 us
 qa194-6.000000%.j2 :  Tempo de execução do algoritmo: 39055 us
+qa194-6.000000%-sp0 :  Tempo de execução do algoritmo: 1786739 us
 qa194-6.000000%-sp1 :  Tempo de execução do algoritmo: 109194 us
 qa194-65.000000%-bf :  Tempo de execução do algoritmo: 18338 us
 qa194-65.000000%-dj0 :  Tempo de execução do algoritmo: 283 us
@@ -707,6 +722,7 @@ qa194-7.000000%-fw :  Tempo de execução do algoritmo: 21461 us
 qa194-7.000000%-j0 :  Tempo de execução do algoritmo: 27869 us
 qa194-7.000000%.j1 :  Tempo de execução do algoritmo: 35668 us
 qa194-7.000000%.j2 :  Tempo de execução do algoritmo: 40551 us
+qa194-7.000000%-sp0 :  Tempo de execução do algoritmo: 1977399 us
 qa194-7.000000%-sp1 :  Tempo de execução do algoritmo: 89323 us
 qa194-75.000000%-bf :  Tempo de execução do algoritmo: 19286 us
 qa194-75.000000%-dj0 :  Tempo de execução do algoritmo: 267 us
@@ -734,6 +750,7 @@ qa194-8.000000%-fw :  Tempo de execução do algoritmo: 35117 us
 qa194-8.000000%-j0 :  Tempo de execução do algoritmo: 17066 us
 qa194-8.000000%.j1 :  Tempo de execução do algoritmo: 47923 us
 qa194-8.000000%.j2 :  Tempo de execução do algoritmo: 40774 us
+qa194-8.000000%-sp0 :  Tempo de execução do algoritmo: 1785570 us
 qa194-8.000000%-sp1 :  Tempo de execução do algoritmo: 89611 us
 qa194-85.000000%-bf :  Tempo de execução do algoritmo: 21045 us
 qa194-85.000000%-dj0 :  Tempo de execução do algoritmo: 318 us
@@ -761,6 +778,7 @@ qa194-9.000000%-fw :  Tempo de execução do algoritmo: 35341 us
 qa194-9.000000%-j0 :  Tempo de execução do algoritmo: 29282 us
 qa194-9.000000%.j1 :  Tempo de execução do algoritmo: 35704 us
 qa194-9.000000%.j2 :  Tempo de execução do algoritmo: 40444 us
+qa194-9.000000%-sp0 :  Tempo de execução do algoritmo: 1969119 us
 qa194-9.000000%-sp1 :  Tempo de execução do algoritmo: 112071 us
 qa194-95.000000%-bf :  Tempo de execução do algoritmo: 28322 us
 qa194-95.000000%-dj0 :  Tempo de execução do algoritmo: 327 us
@@ -779,8 +797,11 @@ qa194-f-fw :  Tempo de execução do algoritmo: 26571 us
 qa194-f-j0 :  Tempo de execução do algoritmo: 52083 us
 qa194-f.j1 :  Tempo de execução do algoritmo: 66470 us
 qa194-f.j2 :  Tempo de execução do algoritmo: 38894 us
+qa194-f-sp0 :  Tempo de execução do algoritmo: 1956275 us
 qa194-f-sp1 :  Tempo de execução do algoritmo: 104913 us
+*-sp0 :  Lendo grafo...
 sw24978-0.100000%-bf : 
+total_times-sp0 : 
 uy734-0.100000%-bf :  Tempo de execução do algoritmo: 1161 us
 uy734-0.100000%-dj0 :  Tempo de execução do algoritmo: 84 us
 uy734-0.100000%-dj1 :  Tempo de execução do algoritmo: 916 us
@@ -789,6 +810,7 @@ uy734-0.100000%-fw :  Tempo de execução do algoritmo: 842538 us
 uy734-0.100000%-j0 :  Tempo de execução do algoritmo: 75970 us
 uy734-0.100000%.j1 :  Tempo de execução do algoritmo: 620640 us
 uy734-0.100000%.j2 :  Tempo de execução do algoritmo: 185834 us
+uy734-0.100000%-sp0 :  Tempo de execução do algoritmo: 475038771 us
 uy734-0.100000%-sp1 :  Tempo de execução do algoritmo: 6320328 us
 uy734-0.200000%-bf :  Tempo de execução do algoritmo: 2297 us
 uy734-0.200000%-dj0 :  Tempo de execução do algoritmo: 174 us
@@ -798,6 +820,7 @@ uy734-0.200000%-fw :  Tempo de execução do algoritmo: 702903 us
 uy734-0.200000%-j0 :  Tempo de execução do algoritmo: 121548 us
 uy734-0.200000%.j1 :  Tempo de execução do algoritmo: 1014492 us
 uy734-0.200000%.j2 :  Tempo de execução do algoritmo: 256053 us
+uy734-0.200000%-sp0 :  Tempo de execução do algoritmo: 469048796 us
 uy734-0.200000%-sp1 :  Tempo de execução do algoritmo: 6094542 us
 uy734-0.300000%-bf :  Tempo de execução do algoritmo: 3755 us
 uy734-0.300000%-dj0 :  Tempo de execução do algoritmo: 268 us
@@ -807,6 +830,7 @@ uy734-0.300000%-fw :  Tempo de execução do algoritmo: 811828 us
 uy734-0.300000%-j0 :  Tempo de execução do algoritmo: 184642 us
 uy734-0.300000%.j1 :  Tempo de execução do algoritmo: 1374696 us
 uy734-0.300000%.j2 :  Tempo de execução do algoritmo: 341542 us
+uy734-0.300000%-sp0 :  Tempo de execução do algoritmo: 472476498 us
 uy734-0.300000%-sp1 :  Tempo de execução do algoritmo: 6086615 us
 uy734-0.400000%-bf :  Tempo de execução do algoritmo: 7929 us
 uy734-0.400000%-dj0 :  Tempo de execução do algoritmo: 269 us
@@ -816,6 +840,7 @@ uy734-0.400000%-fw :  Tempo de execução do algoritmo: 840455 us
 uy734-0.400000%-j0 :  Tempo de execução do algoritmo: 218561 us
 uy734-0.400000%.j1 :  Tempo de execução do algoritmo: 1534839 us
 uy734-0.400000%.j2 :  Tempo de execução do algoritmo: 373265 us
+uy734-0.400000%-sp0 :  Tempo de execução do algoritmo: 473225965 us
 uy734-0.400000%-sp1 :  Tempo de execução do algoritmo: 6085369 us
 uy734-0.500000%-bf :  Tempo de execução do algoritmo: 7265 us
 uy734-0.500000%-dj0 :  Tempo de execução do algoritmo: 414 us
@@ -825,6 +850,7 @@ uy734-0.500000%-fw :  Tempo de execução do algoritmo: 812404 us
 uy734-0.500000%-j0 :  Tempo de execução do algoritmo: 147306 us
 uy734-0.500000%.j1 :  Tempo de execução do algoritmo: 1274518 us
 uy734-0.500000%.j2 :  Tempo de execução do algoritmo: 387423 us
+uy734-0.500000%-sp0 :  Tempo de execução do algoritmo: 474581306 us
 uy734-0.500000%-sp1 :  Tempo de execução do algoritmo: 6174969 us
 uy734-0.600000%-bf :  Tempo de execução do algoritmo: 9788 us
 uy734-0.600000%-dj0 :  Tempo de execução do algoritmo: 435 us
@@ -834,6 +860,7 @@ uy734-0.600000%-fw :  Tempo de execução do algoritmo: 834877 us
 uy734-0.600000%-j0 :  Tempo de execução do algoritmo: 154053 us
 uy734-0.600000%.j1 :  Tempo de execução do algoritmo: 1444066 us
 uy734-0.600000%.j2 :  Tempo de execução do algoritmo: 398326 us
+uy734-0.600000%-sp0 :  Tempo de execução do algoritmo: 470000404 us
 uy734-0.600000%-sp1 :  Tempo de execução do algoritmo: 5969926 us
 uy734-0.700000%-bf :  Tempo de execução do algoritmo: 13802 us
 uy734-0.700000%-dj0 :  Tempo de execução do algoritmo: 373 us
@@ -843,6 +870,7 @@ uy734-0.700000%-fw :  Tempo de execução do algoritmo: 658827 us
 uy734-0.700000%-j0 :  Tempo de execução do algoritmo: 253907 us
 uy734-0.700000%.j1 :  Tempo de execução do algoritmo: 1311727 us
 uy734-0.700000%.j2 :  Tempo de execução do algoritmo: 405702 us
+uy734-0.700000%-sp0 :  Tempo de execução do algoritmo: 464656548 us
 uy734-0.700000%-sp1 :  Tempo de execução do algoritmo: 5543405 us
 uy734-0.800000%-bf :  Tempo de execução do algoritmo: 11652 us
 uy734-0.800000%-dj0 :  Tempo de execução do algoritmo: 391 us
@@ -852,6 +880,7 @@ uy734-0.800000%-fw :  Tempo de execução do algoritmo: 856161 us
 uy734-0.800000%-j0 :  Tempo de execução do algoritmo: 164829 us
 uy734-0.800000%.j1 :  Tempo de execução do algoritmo: 1404196 us
 uy734-0.800000%.j2 :  Tempo de execução do algoritmo: 411579 us
+uy734-0.800000%-sp0 :  Tempo de execução do algoritmo: 468327384 us
 uy734-0.800000%-sp1 :  Tempo de execução do algoritmo: 6771286 us
 uy734-0.900000%-bf :  Tempo de execução do algoritmo: 16884 us
 uy734-0.900000%-dj0 :  Tempo de execução do algoritmo: 366 us
@@ -861,6 +890,7 @@ uy734-0.900000%-fw :  Tempo de execução do algoritmo: 830717 us
 uy734-0.900000%-j0 :  Tempo de execução do algoritmo: 266527 us
 uy734-0.900000%.j1 :  Tempo de execução do algoritmo: 1326070 us
 uy734-0.900000%.j2 :  Tempo de execução do algoritmo: 278406 us
+uy734-0.900000%-sp0 :  Tempo de execução do algoritmo: 466297836 us
 uy734-0.900000%-sp1 :  Tempo de execução do algoritmo: 6643011 us
 uy734-10.000000%-bf :  Tempo de execução do algoritmo: 114340 us
 uy734-10.000000%-dj0 :  Tempo de execução do algoritmo: 762 us
@@ -879,6 +909,7 @@ uy734-1.000000%-fw :  Tempo de execução do algoritmo: 831694 us
 uy734-1.000000%-j0 :  Tempo de execução do algoritmo: 257338 us
 uy734-1.000000%.j1 :  Tempo de execução do algoritmo: 1152117 us
 uy734-1.000000%.j2 :  Tempo de execução do algoritmo: 283811 us
+uy734-1.000000%-sp0 :  Tempo de execução do algoritmo: 472110060 us
 uy734-1.000000%-sp1 :  Tempo de execução do algoritmo: 5729197 us
 uy734-15.000000%-bf :  Tempo de execução do algoritmo: 154241 us
 uy734-15.000000%-dj0 :  Tempo de execução do algoritmo: 895 us
@@ -906,6 +937,7 @@ uy734-2.000000%-fw :  Tempo de execução do algoritmo: 850174 us
 uy734-2.000000%-j0 :  Tempo de execução do algoritmo: 310840 us
 uy734-2.000000%.j1 :  Tempo de execução do algoritmo: 1554749 us
 uy734-2.000000%.j2 :  Tempo de execução do algoritmo: 316010 us
+uy734-2.000000%-sp0 :  Tempo de execução do algoritmo: 465876428 us
 uy734-2.000000%-sp1 :  Tempo de execução do algoritmo: 5732248 us
 uy734-25.000000%-bf :  Tempo de execução do algoritmo: 256098 us
 uy734-25.000000%-dj0 :  Tempo de execução do algoritmo: 940 us
@@ -933,6 +965,7 @@ uy734-3.000000%-fw :  Tempo de execução do algoritmo: 666837 us
 uy734-3.000000%-j0 :  Tempo de execução do algoritmo: 344579 us
 uy734-3.000000%.j1 :  Tempo de execução do algoritmo: 1463460 us
 uy734-3.000000%.j2 :  Tempo de execução do algoritmo: 384350 us
+uy734-3.000000%-sp0 :  Tempo de execução do algoritmo: 466518433 us
 uy734-3.000000%-sp1 :  Tempo de execução do algoritmo: 5677814 us
 uy734-35.000000%-bf :  Tempo de execução do algoritmo: 258614 us
 uy734-35.000000%-dj0 :  Tempo de execução do algoritmo: 1172 us
@@ -960,6 +993,7 @@ uy734-4.000000%-fw :  Tempo de execução do algoritmo: 871756 us
 uy734-4.000000%-j0 :  Tempo de execução do algoritmo: 379207 us
 uy734-4.000000%.j1 :  Tempo de execução do algoritmo: 1299014 us
 uy734-4.000000%.j2 :  Tempo de execução do algoritmo: 531286 us
+uy734-4.000000%-sp0 :  Tempo de execução do algoritmo: 472348634 us
 uy734-4.000000%-sp1 :  Tempo de execução do algoritmo: 6462708 us
 uy734-45.000000%-bf :  Tempo de execução do algoritmo: 542404 us
 uy734-45.000000%-dj0 :  Tempo de execução do algoritmo: 1653 us
@@ -987,6 +1021,7 @@ uy734-5.000000%-fw :  Tempo de execução do algoritmo: 866134 us
 uy734-5.000000%-j0 :  Tempo de execução do algoritmo: 410363 us
 uy734-5.000000%.j1 :  Tempo de execução do algoritmo: 1443543 us
 uy734-5.000000%.j2 :  Tempo de execução do algoritmo: 559314 us
+uy734-5.000000%-sp0 :  Tempo de execução do algoritmo: 469284298 us
 uy734-5.000000%-sp1 :  Tempo de execução do algoritmo: 5642022 us
 uy734-55.000000%-bf :  Tempo de execução do algoritmo: 423451 us
 uy734-55.000000%-dj0 :  Tempo de execução do algoritmo: 1918 us
@@ -1014,6 +1049,7 @@ uy734-6.000000%-fw :  Tempo de execução do algoritmo: 861075 us
 uy734-6.000000%-j0 :  Tempo de execução do algoritmo: 438361 us
 uy734-6.000000%.j1 :  Tempo de execução do algoritmo: 1431620 us
 uy734-6.000000%.j2 :  Tempo de execução do algoritmo: 588162 us
+uy734-6.000000%-sp0 :  Tempo de execução do algoritmo: 466115019 us
 uy734-6.000000%-sp1 :  Tempo de execução do algoritmo: 5743475 us
 uy734-65.000000%-bf :  Tempo de execução do algoritmo: 539336 us
 uy734-65.000000%-dj0 :  Tempo de execução do algoritmo: 1968 us
@@ -1041,6 +1077,7 @@ uy734-7.000000%-fw :  Tempo de execução do algoritmo: 856680 us
 uy734-7.000000%-j0 :  Tempo de execução do algoritmo: 322531 us
 uy734-7.000000%.j1 :  Tempo de execução do algoritmo: 1532571 us
 uy734-7.000000%.j2 :  Tempo de execução do algoritmo: 622891 us
+uy734-7.000000%-sp0 :  Tempo de execução do algoritmo: 471359416 us
 uy734-7.000000%-sp1 :  Tempo de execução do algoritmo: 6517664 us
 uy734-75.000000%-bf :  Tempo de execução do algoritmo: 723417 us
 uy734-75.000000%-dj0 :  Tempo de execução do algoritmo: 2207 us
@@ -1068,6 +1105,7 @@ uy734-8.000000%-fw :  Tempo de execução do algoritmo: 861144 us
 uy734-8.000000%-j0 :  Tempo de execução do algoritmo: 493667 us
 uy734-8.000000%.j1 :  Tempo de execução do algoritmo: 1433878 us
 uy734-8.000000%.j2 :  Tempo de execução do algoritmo: 618389 us
+uy734-8.000000%-sp0 :  Tempo de execução do algoritmo: 464523263 us
 uy734-8.000000%-sp1 :  Tempo de execução do algoritmo: 6605875 us
 uy734-85.000000%-bf :  Tempo de execução do algoritmo: 1006106 us
 uy734-85.000000%-dj0 :  Tempo de execução do algoritmo: 1990 us
@@ -1095,6 +1133,7 @@ uy734-9.000000%-fw :  Tempo de execução do algoritmo: 879283 us
 uy734-9.000000%-j0 :  Tempo de execução do algoritmo: 520041 us
 uy734-9.000000%.j1 :  Tempo de execução do algoritmo: 1378751 us
 uy734-9.000000%.j2 :  Tempo de execução do algoritmo: 482330 us
+uy734-9.000000%-sp0 :  Tempo de execução do algoritmo: 471356997 us
 uy734-9.000000%-sp1 :  Tempo de execução do algoritmo: 5832577 us
 uy734-95.000000%-bf :  Tempo de execução do algoritmo: 1045482 us
 uy734-95.000000%-dj0 :  Tempo de execução do algoritmo: 2969 us
@@ -1113,4 +1152,5 @@ uy734-f-fw :  Tempo de execução do algoritmo: 598786 us
 uy734-f-j0 :  Tempo de execução do algoritmo: 1136645 us
 uy734-f.j1 :  Tempo de execução do algoritmo: 1750417 us
 uy734-f.j2 :  Tempo de execução do algoritmo: 1219605 us
+uy734-f-sp0 :  Tempo de execução do algoritmo: 467791565 us
 uy734-f-sp1 :  Tempo de execução do algoritmo: 5501928 us
